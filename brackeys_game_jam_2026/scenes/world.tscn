@@ -6,18 +6,17 @@
 
 [node name="World" type="Node2D" unique_id=1059049741]
 
-[node name="Item" parent="." unique_id=1308810569 instance=ExtResource("1_4wyf3")]
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=64544826]
 position = Vector2(575, 325)
 scale = Vector2(8.96875, 5.015625)
 texture = ExtResource("1_rwgxs")
 
+[node name="Item" parent="." unique_id=1308810569 instance=ExtResource("1_4wyf3")]
+
 [node name="Player" parent="." unique_id=997754516 instance=ExtResource("1_nnsk1")]
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1842465080]
 zoom = Vector2(2, 2)
-position = Vector2(540, 300)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=993633121]
 color = Color(0, 0, 0, 1)
