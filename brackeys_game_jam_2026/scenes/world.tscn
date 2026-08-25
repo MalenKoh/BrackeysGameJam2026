@@ -17,6 +17,7 @@ texture = ExtResource("1_rwgxs")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1842465080]
 zoom = Vector2(2, 2)
+position = Vector2(540, 300)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=993633121]
 color = Color(0, 0, 0, 1)

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b50cosh00xiej" path="res://scripts/normal/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://b80nh1iu128sd" path="res://icon.svg" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://dot1vehqfyg2m" path="res://scenes/flashlight.tscn" id="3_qhqgy"]
 
 [sub_resource type="Gradient" id="Gradient_g2els"]
 offsets = PackedFloat32Array(0, 0.82530123)
@@ -34,3 +35,6 @@ shape = SubResource("CircleShape2D_g4v7s")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+
+[node name="Flashlight" parent="." unique_id=1930658053 instance=ExtResource("3_qhqgy")]
+script = null
