@@ -4,7 +4,11 @@ class_name Player
 const SPEED: int = 50
 
 @onready var area_2d: Area2D = $Area2D
+@onready var flashlight: Node2D = $Flashlight
 
+func _process(_delta: float) -> void:
+	rotate_flashlight()
+	
 func _physics_process(delta: float) -> void:
 	var delta_speed = SPEED * delta
 	
@@ -35,3 +39,12 @@ func interact() -> void:
 	print(nearest_item)
 	if nearest_item:
 		PlayerGlobal.add_to_inventory(nearest_item)
+		
+func rotate_flashlight():
+	flashlight.global_rotation = calculate_rot_angle()
+
+func calculate_rot_angle() -> float:
+	var offset: Vector2 = get_global_mouse_position() - global_position
+	var angle: float = offset.angle()
+	angle -= PI / 2
+	return angle
