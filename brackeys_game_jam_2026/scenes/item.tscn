@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c1q3orxqixvmq"]
+
+[ext_resource type="Script" uid="uid://4dw8511mrk63" path="res://scripts/normal/base_item.gd" id="1_4gq7n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 30.016663
+
+[node name="Item" type="Node2D" unique_id=1308810569]
+script = ExtResource("1_4gq7n")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1024092975]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=313055876]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Tooltip" type="Control" parent="." unique_id=1625677652]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Container" type="Container" parent="Tooltip" unique_id=903552649]
+layout_mode = 0
+offset_left = -44.0
+offset_top = -36.0
+offset_right = 45.0
+offset_bottom = 24.0
+
+[node name="Label" type="Label" parent="Tooltip/Container" unique_id=556942125]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "E to Pick Up"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
