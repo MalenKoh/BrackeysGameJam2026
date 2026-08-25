@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dot1vehqfyg2m"]
+
+[ext_resource type="Texture2D" uid="uid://btuvomdvc24h8" path="res://assets/sprites/lightbeam.png" id="1_lkaa1"]
+
+[sub_resource type="GDScript" id="GDScript_lkaa1"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func calculate_rot_angle():
+	pass
+"
+
+[node name="Flashlight" type="Node2D" unique_id=1930658053]
+script = SubResource("GDScript_lkaa1")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=76875133]
+position = Vector2(0, 32)
+texture = ExtResource("1_lkaa1")

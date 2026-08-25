@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b50cosh00xiej" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://b80nh1iu128sd" path="res://icon.svg" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://dot1vehqfyg2m" path="res://scenes/flashlight.tscn" id="3_qhqgy"]
 
 [sub_resource type="Gradient" id="Gradient_g2els"]
 offsets = PackedFloat32Array(0, 0.82530123)
@@ -12,7 +13,7 @@ gradient = SubResource("Gradient_g2els")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[node name="Node2D" type="Node2D" unique_id=997754516]
+[node name="Player" type="Node2D" unique_id=997754516]
 script = ExtResource("1_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1570895195]
@@ -22,3 +23,6 @@ texture = ExtResource("2_qhqgy")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=257456648]
 texture = SubResource("GradientTexture2D_p4spw")
+
+[node name="Flashlight" parent="." unique_id=1930658053 instance=ExtResource("3_qhqgy")]
+script = null
