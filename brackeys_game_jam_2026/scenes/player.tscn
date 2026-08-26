@@ -1,8 +1,44 @@
 [gd_scene format=3 uid="uid://cw20ibg6lo01u"]
 
 [ext_resource type="Script" uid="uid://b50cosh00xiej" path="res://scripts/normal/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://b80nh1iu128sd" path="res://icon.svg" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://dn0rvr26ixg7" path="res://assets/sprites/top-down_guy-Sheet.png" id="2_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://dot1vehqfyg2m" path="res://scenes/flashlight.tscn" id="3_qhqgy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t6gd5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqkch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjrip")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Gradient" id="Gradient_g2els"]
 offsets = PackedFloat32Array(0, 0.82530123)
@@ -19,14 +55,11 @@ radius = 12.0415945
 [node name="Player" type="Node2D" unique_id=997754516]
 script = ExtResource("1_g2els")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1570895195]
-position = Vector2(-3.8146973e-06, -3.8146973e-06)
-scale = Vector2(0.203125, 0.203125)
-texture = ExtResource("2_qhqgy")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=130134635]
+sprite_frames = SubResource("SpriteFrames_t6gd5")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=257456648]
 texture = SubResource("GradientTexture2D_p4spw")
-texture_scale = 2.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1184062858]
 

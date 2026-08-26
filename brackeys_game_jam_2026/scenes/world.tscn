@@ -3,6 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://c1q3orxqixvmq" path="res://scenes/item.tscn" id="1_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://cw20ibg6lo01u" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="Texture2D" uid="uid://b80nh1iu128sd" path="res://icon.svg" id="1_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://6bgo64vuxs8o" path="res://scenes/enemy.tscn" id="4_k0juu"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_t6gd5"]
+vertices = PackedVector2Array(1057.9063, 74.796875, 1107.9531, 582.8906, 158.78125, 574.0625, 63.320313, 336.85938, 95.28906, 143.13281, 193.6875, 56.078125)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(53, 338, 152, 584, 1119, 593, 1067, 65, 190, 46, 86, 138)])
 
 [node name="World" type="Node2D" unique_id=1059049741]
 
@@ -14,10 +20,21 @@ scale = Vector2(8.96875, 5.015625)
 texture = ExtResource("1_rwgxs")
 
 [node name="Player" parent="." unique_id=997754516 instance=ExtResource("1_nnsk1")]
+position = Vector2(2, -1)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1842465080]
+position = Vector2(-10, -38)
 zoom = Vector2(2, 2)
-position = Vector2(540, 300)
+position_smoothing_enabled = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=993633121]
 color = Color(0, 0, 0, 1)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1650155327]
+navigation_polygon = SubResource("NavigationPolygon_t6gd5")
+
+[node name="enemymymym" type="Node" parent="." unique_id=1913219879]
+
+[node name="Enemy" parent="enemymymym" unique_id=1354639152 node_paths=PackedStringArray("point") instance=ExtResource("4_k0juu")]
+position = Vector2(617, 177)
+point = NodePath("../../Player")

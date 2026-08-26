@@ -16,3 +16,6 @@ func add_to_inventory(item: BaseItem) -> void:
 
 func full_inventory() -> void:
 	pass
+
+#test since i dont wanna add merge stuff
+var flashlight: Node2D

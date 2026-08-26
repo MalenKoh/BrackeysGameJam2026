@@ -2,11 +2,15 @@ extends Node2D
 class_name Player
 
 const SPEED: int = 50
-
 @onready var area_2d: Area2D = $Area2D
 @onready var flashlight: Node2D = $Flashlight
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+func _ready() -> void:
+	PlayerGlobal.flashlight=flashlight
 
 func _process(_delta: float) -> void:
+	sprite.global_rotation=calculate_rot_angle() #for the player to look around
 	rotate_flashlight()
 	
 func _physics_process(delta: float) -> void:

@@ -9,19 +9,33 @@ script/source = "extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
-
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
 func calculate_rot_angle():
 	pass
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print(str(body))
+	if(body is EnemyC):
+		body.flashed=true
 "
 
 [node name="Flashlight" type="Node2D" unique_id=1930658053]
 script = SubResource("GDScript_lkaa1")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=76875133]
-position = Vector2(0, 32)
+position = Vector2(0, 37)
 texture = ExtResource("1_lkaa1")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1372779087]
+position = Vector2(0, 6)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=176203561]
+polygon = PackedVector2Array(0, 0, 5, 16, 14, 38, -13, 38, -5, 16)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
