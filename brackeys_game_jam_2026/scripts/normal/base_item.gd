@@ -1,5 +1,5 @@
 extends Node2D 
-class_name BaseItem
+class_name DroppedItem
 
 @export_category("Item")
 @export var resource : ItemResource
