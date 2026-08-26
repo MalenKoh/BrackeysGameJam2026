@@ -26,4 +26,4 @@ drag_right_margin = 0.5
 drag_bottom_margin = 0.5
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=993633121]
-color = Color(0, 0, 0, 1)
+color = Color(0.011087579, 0.011087579, 0.011087577, 0.8156863)
