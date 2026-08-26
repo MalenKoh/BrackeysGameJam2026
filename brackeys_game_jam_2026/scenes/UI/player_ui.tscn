@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cbde7yvxr02wf"]
+
+[ext_resource type="Script" uid="uid://c43ks182vic6n" path="res://scripts/normal/player_ui.gd" id="1_d6j1s"]
+
+[node name="Player_UI" type="CanvasLayer" unique_id=64824392]
+script = ExtResource("1_d6j1s")
+
+[node name="Control" type="Control" parent="." unique_id=1034058811]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=563034789]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = -90.0
+offset_right = 372.0
+grow_vertical = 0
+theme_override_constants/separation = 80
