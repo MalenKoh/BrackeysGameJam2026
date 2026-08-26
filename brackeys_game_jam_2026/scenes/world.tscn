@@ -5,14 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://b80nh1iu128sd" path="res://icon.svg" id="1_rwgxs"]
 [ext_resource type="Resource" uid="uid://c7m707d866pc4" path="res://resources/flashlight.tres" id="3_k0juu"]
 [ext_resource type="Shader" uid="uid://uwwul7yi4rrq" path="res://shaders/crt.gdshader" id="5_71j4m"]
+[ext_resource type="Script" uid="uid://5f56ajsjtqfb" path="res://scripts/autoloads/crt_shader.gd" id="6_qfnet"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uf2qe"]
 shader = ExtResource("5_71j4m")
-shader_parameter/screen_height = 600.0
+shader_parameter/screen_height = 0.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_stk03"]
-size = Vector2(800, 600)
-center_offset = Vector3(400, 300, 0)
 
 [node name="World" type="Node2D" unique_id=1059049741]
 
@@ -43,3 +42,4 @@ color = Color(0.011087579, 0.011087579, 0.011087577, 0.8156863)
 [node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer" unique_id=1314936393]
 material = SubResource("ShaderMaterial_uf2qe")
 mesh = SubResource("QuadMesh_stk03")
+script = ExtResource("6_qfnet")
