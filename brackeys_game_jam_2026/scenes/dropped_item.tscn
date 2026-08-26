@@ -8,11 +8,6 @@ radius = 30.016663
 [node name="Item" type="Node2D" unique_id=1308810569]
 script = ExtResource("1_4gq7n")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1024092975]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=313055876]
-shape = SubResource("CircleShape2D_g4v7s")
-
 [node name="Tooltip" type="Control" parent="." unique_id=1625677652]
 layout_mode = 3
 anchors_preset = 0
@@ -32,6 +27,11 @@ visibility_layer = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "E to Pick Up"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1024092975]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=313055876]
+shape = SubResource("CircleShape2D_g4v7s")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
