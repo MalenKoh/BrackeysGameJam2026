@@ -38,7 +38,7 @@ func add_to_inventory(item: DroppedItem) -> void:
 
 func swap_item(key : int) -> void:
 	if (key == current_key): return
-	
+
 	if inventory_items[current_key] != null:
 		inventory_items[current_key].item_active = false
 	

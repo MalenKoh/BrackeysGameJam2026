@@ -3,7 +3,9 @@ class_name Player
 
 const SPEED: int = 75
 
+#children
 @onready var area_2d: Area2D = $Area2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
 	PlayerGlobal.player = self
@@ -12,9 +14,12 @@ func _process(_delta: float) -> void:
 	interact()
 	choose_item()
 	drop_item()
+	look_at_mouse()
 	
 func _physics_process(delta: float) -> void:
 	var delta_speed = SPEED * delta
+	
+	var moving : bool = true
 	
 	if Input.is_action_pressed("move_left"):
 		position.x -= delta_speed
@@ -24,6 +29,27 @@ func _physics_process(delta: float) -> void:
 		position.y -= delta_speed
 	elif Input.is_action_pressed("move_down"):
 		position.y += delta_speed
+	else:
+		moving = false
+		
+	update_animation(moving)
+	
+func update_animation(moving : bool) -> void:
+	var next_animation : String = ""
+	
+	if !moving:
+		next_animation = "None/Idle"
+	else:
+		next_animation = "None/Walking"
+	
+	if animation_player.current_animation == next_animation: return
+	animation_player.play(next_animation)
+	
+func look_at_mouse() -> void:
+	var offset: Vector2 = get_global_mouse_position() - global_position
+	var angle: float = offset.angle()
+	angle -= PI / 2
+	global_rotation = angle
 	
 func drop_item() -> void:
 	if !Input.is_action_just_pressed("drop_item"): return
