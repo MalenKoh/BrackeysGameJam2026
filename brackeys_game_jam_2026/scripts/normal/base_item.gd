@@ -6,7 +6,7 @@ class_name DroppedItem
 
 #ready
 @onready var tooltip: Control = $Tooltip
-@onready var item_sprite: TextureRect = $ItemSprite
+@onready var item_sprite: Sprite2D = $ItemSprite
 
 func _ready() -> void:
 	item_sprite.texture = resource.item_sprite
