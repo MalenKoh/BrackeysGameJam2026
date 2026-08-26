@@ -1,6 +1,8 @@
 extends Node
 
 var player : Player
+var player_UI : PlayerUI
+
 var inventory_resources : Array[ItemResource]
 var inventory_items : Array[BaseItem]
 var current_key : int = 0
@@ -30,6 +32,8 @@ func add_to_inventory(item: DroppedItem) -> void:
 		full_inventory()
 		return
 		
+	player_UI.update_item(key, item.resource.item_sprite)
+	
 	inventory_resources[key] = item.resource
 	item.queue_free()
 	
@@ -46,9 +50,11 @@ func swap_item(key : int) -> void:
 	
 	if inventory_items[current_key] != null:
 		inventory_items[current_key].item_active = true
-
+	
+	player_UI.select_slot(key)
 func remove_item(key : int) -> void:
 	inventory_resources[key] = null
+	player_UI.update_item(key, null)
 	
 	if key == current_key:
 		inventory_items[current_key].queue_free()
@@ -66,10 +72,9 @@ func drop_item() -> void:
 	
 	var item_drop : DroppedItem = DROPPED_ITEM.instantiate()
 	
-	get_tree().current_scene.add_child(item_drop)
-	
 	item_drop.global_position = player.global_position
 	item_drop.resource = item_resource
+	get_tree().current_scene.add_child(item_drop)
 	
 func full_inventory() -> void:
 	pass

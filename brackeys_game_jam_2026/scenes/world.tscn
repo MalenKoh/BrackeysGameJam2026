@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://cjbnbvpf32b8y"]
 
 [ext_resource type="PackedScene" uid="uid://c1q3orxqixvmq" path="res://scenes/dropped_item.tscn" id="1_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://cbde7yvxr02wf" path="res://scenes/UI/player_ui.tscn" id="1_71j4m"]
 [ext_resource type="PackedScene" uid="uid://cw20ibg6lo01u" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="Texture2D" uid="uid://b80nh1iu128sd" path="res://icon.svg" id="1_rwgxs"]
 [ext_resource type="Resource" uid="uid://c7m707d866pc4" path="res://resources/flashlight.tres" id="3_k0juu"]
 
 [node name="World" type="Node2D" unique_id=1059049741]
+
+[node name="Player_UI" parent="." unique_id=64824392 instance=ExtResource("1_71j4m")]
 
 [node name="Item" parent="." unique_id=1308810569 instance=ExtResource("1_4wyf3")]
 resource = ExtResource("3_k0juu")
