@@ -2,8 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dot1vehqfyg2m" path="res://scenes/flashlight.tscn" id="1_wvx58"]
 [ext_resource type="Script" uid="uid://bpbkdyaoxypm4" path="res://scripts/normal/item_resource.gd" id="2_7rxx2"]
+[ext_resource type="Texture2D" uid="uid://4dwo2tu5so3w" path="res://assets/sprites/flashlight_icon.png" id="2_iekkm"]
 
 [resource]
 script = ExtResource("2_7rxx2")
 item_name = "Flashlight"
+item_sprite = ExtResource("2_iekkm")
 item_scene = ExtResource("1_wvx58")

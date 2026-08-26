@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://df11ujghokx6o"]
+
+[ext_resource type="Script" uid="uid://csnssx23yltlu" path="res://scripts/normal/hotbar_slot.gd" id="1_seiki"]
+[ext_resource type="Texture2D" uid="uid://blrdtjwb5534u" path="res://assets/sprites/inventory_slot_off.png" id="2_8is46"]
+
+[node name="Hotbar_Slot" type="Control" unique_id=387414828]
+layout_mode = 3
+anchor_right = 0.062000003
+anchor_bottom = 0.11100001
+offset_right = 0.5759964
+offset_bottom = 0.07199097
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_seiki")
+
+[node name="Frame" type="TextureRect" parent="." unique_id=340746537]
+layout_mode = 0
+offset_right = 72.0
+offset_bottom = 72.0
+texture = ExtResource("2_8is46")
+
+[node name="Item" type="TextureRect" parent="Frame" unique_id=293982405]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 60.0
+offset_bottom = 60.0
