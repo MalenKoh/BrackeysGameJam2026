@@ -3,13 +3,16 @@ class_name World
 
 @onready var canvas_modulate: CanvasModulate = $CanvasModulate
 @onready var world_environment: WorldEnvironment = $WorldEnvironment
-@onready var timer: Timer = $Timer
+@onready var clarity_timer: Timer = $ClarityTimer
 
 const TRANSITION_HEARTBEAT_INSANE = preload("uid://dlsk6asahqgv4")
 const TRANSITION_TINNITUS_CLARITY = preload("uid://b32cowj2u3asa")
 
 var sane : bool = false
 var player : Player
+
+signal clarity_begins()
+signal insanity_begins()
 
 func _ready() -> void:
 	player = PlayerGlobal.player
@@ -18,6 +21,7 @@ func _ready() -> void:
 func shift_to_clarity() -> void:
 	var tween = create_tween()
 	
+	transition_fake_objects("ffffff00", 0.5, Tween.TRANS_CUBIC)
 	tween.tween_property(canvas_modulate, "color", Color.from_string("a7a7a7", Color.WHITE), 0.5).set_trans(Tween.TRANS_CUBIC)
 	world_environment.environment.glow_bloom = 0.5
 	
@@ -27,18 +31,23 @@ func shift_to_clarity() -> void:
 	tween.set_parallel() 
 	tween.tween_property(tinnitus, "volume_db", -70, 7).set_trans(Tween.TRANS_CIRC)
 	AudioServer.set_bus_effect_enabled(1, 0, false)
+	clarity_begins.emit()
+	
 	await tween.finished
-	#AudioServer.set_bus_effect_enabled(1, 0, false)
 	
 	tinnitus.queue_free()
 	
-	#timer.start()
-	#await timer.timeout
-	#shift_to_insanity()
+	clarity_timer.start(randi_range(20, 50))
+	
+	await clarity_timer.timeout
+	
+	shift_to_insanity()
 	
 func shift_to_insanity() -> void:
 	AudioServer.set_bus_effect_enabled(1, 0, true)
-	var tween = create_tween()
+	
+	transition_fake_objects("ffffff", 6, Tween.TRANS_BOUNCE)
+	var tween : Tween = create_tween()
 	
 	tween.tween_property(canvas_modulate, "color", Color.BLACK, 6).set_trans(Tween.TRANS_BOUNCE)
 	world_environment.environment.glow_bloom = 1
@@ -55,8 +64,10 @@ func shift_to_insanity() -> void:
 	await tween.finished
 	heart_beat.stop()
 	heart_beat.queue_free()
-	
-	#timer.start()
-	#await timer.timeout
-	
-	#shift_to_clarity()
+	insanity_begins.emit()
+
+func transition_fake_objects(modulate_value : String, time : float, transition_type : Tween.TransitionType) -> void:
+	for object : Node2D in get_tree().get_nodes_in_group("Fake"):
+		var tween : Tween = create_tween()
+		
+		tween.tween_property(object, "modulate", Color.from_string(modulate_value, Color.WHITE), time).set_trans(transition_type)

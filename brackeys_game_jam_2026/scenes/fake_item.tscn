@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bovemhkpbg5fd"]
+
+[ext_resource type="PackedScene" uid="uid://c1q3orxqixvmq" path="res://scenes/dropped_item.tscn" id="1_ei4xq"]
+[ext_resource type="Script" uid="uid://2d084anyurkc" path="res://scripts/normal/fake_item.gd" id="2_u2k15"]
+
+[node name="FakeItem" unique_id=1308810569 groups=["Fake"] instance=ExtResource("1_ei4xq")]
+script = ExtResource("2_u2k15")

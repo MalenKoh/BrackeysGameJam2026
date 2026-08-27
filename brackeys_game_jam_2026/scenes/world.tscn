@@ -2,11 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://c1q3orxqixvmq" path="res://scenes/dropped_item.tscn" id="1_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://cbde7yvxr02wf" path="res://scenes/UI/player_ui.tscn" id="1_71j4m"]
-[ext_resource type="Script" uid="uid://bogp45ytbs3yo" path="res://scenes/world.gd" id="1_i7141"]
+[ext_resource type="Script" uid="uid://bogp45ytbs3yo" path="res://scripts/normal/world.gd" id="1_i7141"]
 [ext_resource type="PackedScene" uid="uid://cw20ibg6lo01u" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="Texture2D" uid="uid://bvd2tfcmnjexq" path="res://assets/sprites/tilesets.png" id="1_qfnet"]
 [ext_resource type="Texture2D" uid="uid://dbayxn6xewnyy" path="res://assets/sprites/wall_sheet.png" id="2_qfnet"]
 [ext_resource type="Resource" uid="uid://c7m707d866pc4" path="res://resources/flashlight.tres" id="3_k0juu"]
+[ext_resource type="Resource" uid="uid://gqjkd4bnldmi" path="res://resources/key.tres" id="7_4mrxx"]
+[ext_resource type="PackedScene" uid="uid://kx2h43psnixw" path="res://scenes/door.tscn" id="9_7r4gi"]
+[ext_resource type="PackedScene" uid="uid://bovemhkpbg5fd" path="res://scenes/fake_item.tscn" id="10_w7kh3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i7141"]
 texture = ExtResource("1_qfnet")
@@ -555,8 +558,8 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_yf5fn"]
 tile_size = Vector2i(32, 32)
 occlusion_layer_0/light_mask = 1
-physics_layer_0/collision_layer = 2
-physics_layer_0/collision_mask = 2
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 4
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Wall"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
@@ -594,8 +597,12 @@ tile_set = SubResource("TileSet_yf5fn")
 [node name="Item" parent="." unique_id=1308810569 instance=ExtResource("1_4wyf3")]
 resource = ExtResource("3_k0juu")
 
+[node name="Item2" parent="." unique_id=1864130732 instance=ExtResource("1_4wyf3")]
+position = Vector2(-62, -37)
+resource = ExtResource("7_4mrxx")
+
 [node name="Player" parent="." unique_id=997754516 instance=ExtResource("1_nnsk1")]
-position = Vector2(19, -68)
+position = Vector2(312, -109)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1842465080]
 zoom = Vector2(2, 2)
@@ -613,8 +620,23 @@ compositor = SubResource("Compositor_yf5fn")
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=993633121]
 color = Color(0, 0, 0, 1)
 
-[node name="Timer" type="Timer" parent="." unique_id=147377354]
+[node name="ClarityTimer" type="Timer" parent="." unique_id=147377354]
 wait_time = 3.0
 one_shot = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="FakeItem" parent="." unique_id=320908779 instance=ExtResource("10_w7kh3")]
+position = Vector2(107, -64)
+resource = ExtResource("7_4mrxx")
+
+[node name="FakeItem3" parent="." unique_id=1990199408 instance=ExtResource("10_w7kh3")]
+position = Vector2(273, -55)
+resource = ExtResource("7_4mrxx")
+
+[node name="FakeItem2" parent="." unique_id=721120958 instance=ExtResource("10_w7kh3")]
+position = Vector2(368, -129)
+resource = ExtResource("7_4mrxx")
+
+[node name="Door" parent="." unique_id=1129080956 instance=ExtResource("9_7r4gi")]
+position = Vector2(211, -82)
+
+[connection signal="timeout" from="ClarityTimer" to="." method="_on_timer_timeout"]

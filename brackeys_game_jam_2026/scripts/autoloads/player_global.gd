@@ -45,7 +45,7 @@ func add_to_inventory(item: DroppedItem) -> void:
 	inventory_resources[key] = item.resource
 	item.queue_free()
 	
-	equip_item(item.resource)
+	add_item(item.resource, key)
 	
 	if key != current_key:
 		inventory_items[key].item_active = false
@@ -63,6 +63,7 @@ func swap_item(key : int) -> void:
 		AudioHandler.create_temporary_audio(player, HOLD_ITEM, 0, 1.5, "SFX")
 	
 	player_UI.select_slot(key)
+	
 func remove_item(key : int) -> void:
 	inventory_resources[key] = null
 	player_UI.update_item(key, null)
@@ -71,12 +72,13 @@ func remove_item(key : int) -> void:
 		inventory_items[current_key].queue_free()
 		inventory_items[current_key] = null
 		
-func equip_item(item_resource : ItemResource) -> void:
-	inventory_items[current_key] = item_resource.item_scene.instantiate()
-	inventory_items[current_key].resource = item_resource
+func add_item(item_resource : ItemResource, key : int) -> void:
+	inventory_items[key] = item_resource.item_scene.instantiate()
+	inventory_items[key].resource = item_resource
 	
-	player.add_child(inventory_items[current_key])
-
+	player.add_child(inventory_items[key])
+	
+	return
 func drop_item() -> void:
 	if !inventory_items[current_key]: return
 	var item_resource : ItemResource = inventory_resources[current_key]
@@ -85,7 +87,7 @@ func drop_item() -> void:
 	
 	var item_drop : DroppedItem = DROPPED_ITEM.instantiate()
 	
-	AudioHandler.create_temporary_audio(player, DROP_ITEM, 0, 1.5, "SFX")
+	AudioHandler.create_temporary_audio(player, DROP_ITEM, -10, 1.5, "SFX")
 	
 	item_drop.global_position = player.global_position
 	item_drop.resource = item_resource
