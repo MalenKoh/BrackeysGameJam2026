@@ -14,3 +14,10 @@ texture = ExtResource("1_lkaa1")
 offset = Vector2(0, 80)
 texture_scale = 2.0
 height = 290.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=29409659]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=288015507]
+polygon = PackedVector2Array(-13, -9, -23, -146, 22, -146, 14, -10)

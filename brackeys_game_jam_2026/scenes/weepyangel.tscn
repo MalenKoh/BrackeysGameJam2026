@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://bq6o3mrgrce8w"]
+
+[ext_resource type="Script" uid="uid://bnd2cqpql5q0u" path="res://scripts/normal/weepyangel.gd" id="1_70sve"]
+[ext_resource type="Texture2D" uid="uid://dn0rvr26ixg7" path="res://assets/sprites/top-down_guy-Sheet.png" id="2_sq1fa"]
+[ext_resource type="Texture2D" uid="uid://cp46g674yn7qa" path="res://assets/sprites/top-down_guy_flashlight-Sheet.png" id="3_lmnoo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = ExtResource("2_sq1fa")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_po81t"]
+atlas = ExtResource("3_lmnoo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("2_sq1fa")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("2_sq1fa")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("2_sq1fa")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vj8d1"]
+atlas = ExtResource("3_lmnoo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aa2pa"]
+atlas = ExtResource("3_lmnoo")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jihm"]
+atlas = ExtResource("3_lmnoo")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qavjh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqgy")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_po81t")
+}],
+"loop": 1,
+"name": &"Idle_Flashlight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqkch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
+}],
+"loop": 1,
+"name": &"Walking",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_po81t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vj8d1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aa2pa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jihm")
+}],
+"loop": 1,
+"name": &"Walking_Flashlight",
+"speed": 9.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bclok"]
+radius = 11.7
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vm8ei"]
+radius = 12.0415945
+
+[node name="weepyangel" type="CharacterBody2D" unique_id=1123629555]
+script = ExtResource("1_70sve")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2048802227]
+modulate = Color(3.8529434, 0.482837, 3.8529434, 1)
+z_index = 1
+scale = Vector2(0.986, 0.986)
+sprite_frames = SubResource("SpriteFrames_qavjh")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1619672694]
+shape = SubResource("CircleShape2D_bclok")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1573086317]
+
+[node name="PathTimer" type="Timer" parent="." unique_id=1570058031]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=871035273]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1437158880]
+shape = SubResource("CircleShape2D_vm8ei")
+
+[connection signal="timeout" from="PathTimer" to="." method="_on_path_time_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="on_flashlight_enter"]
+[connection signal="area_exited" from="Area2D" to="." method="on_flashlight_exit"]
