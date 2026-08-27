@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 const SPEED: int = 75
-
+const SPRINT_SPEED: int = 125
 #children
 @onready var area_2d: Area2D = $Area2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -18,42 +18,62 @@ func _process(_delta: float) -> void:
 	look_at_mouse()
 	
 func _physics_process(_delta: float) -> void:
+	var speed_magnitude : int = SPEED
 	var next_speed : Vector2 = Vector2.ZERO
+	var sprinting : bool = false
+	var walk_time : float = 0.4
 	
+	if Input.is_action_pressed("sprint"):
+		walk_time = 0.2
+		speed_magnitude = SPRINT_SPEED
+		sprinting = true
+		
 	if Input.is_action_pressed("move_left"):
-		next_speed = Vector2(-SPEED, 0)
+		next_speed = Vector2(-speed_magnitude, 0)
 	elif Input.is_action_pressed("move_right"):
-		next_speed = Vector2(SPEED, 0)
+		next_speed = Vector2(speed_magnitude, 0)
 	elif Input.is_action_pressed("move_up"):
-		next_speed = Vector2(0, -SPEED)
+		next_speed = Vector2(0, -speed_magnitude)
 	elif Input.is_action_pressed("move_down"):
-		next_speed = Vector2(0, SPEED)
+		next_speed = Vector2(0, speed_magnitude)
 	
 	velocity = next_speed
 	
 	if next_speed != Vector2.ZERO:
-		entity_sfx.play_footstep()
-		update_animation(true)
+		entity_sfx.play_footstep(walk_time)
+		update_animation(true, sprinting)
 	else:
-		update_animation(false)
+		update_animation(false, sprinting)
 		
 	move_and_slide()
 	
-func update_animation(moving : bool) -> void:
+func update_animation(moving : bool, sprinting : bool) -> void:
 	var next_animation : String = ""
+	var animation_library : String = "None"
+	var held_item : BaseItem = PlayerGlobal.get_held_item()
 	
+	#rint(held_item.resource)
+	if held_item != null:
+		animation_library = held_item.resource.animation_library
+		
 	if !moving:
-		next_animation = "None/Idle"
+		next_animation = animation_library + "/Idle"
 	else:
-		next_animation = "None/Walking"
+		next_animation = animation_library + "/Walking"
 	
 	if animation_player.current_animation == next_animation: return
-	animation_player.play(next_animation)
+	
+	var animation_speed : float = 1
+	
+	if sprinting:
+		animation_speed = 2
+		
+	animation_player.play(next_animation, 0, animation_speed)
 	
 func look_at_mouse() -> void:
 	var offset: Vector2 = get_global_mouse_position() - global_position
 	var angle: float = offset.angle()
-	angle -= PI / 2
+	angle += PI / 2
 	global_rotation = angle
 	
 func drop_item() -> void:
