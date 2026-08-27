@@ -23,11 +23,11 @@ func _ready() -> void:
 		
 		footsteps_concrete.append(sound_file)
 
-func play_footstep() -> void:
+func play_footstep(time:float) -> void:
 	if step_cd: return
 	
 	step_cd = true
-	step.start()
+	step.start(time)
 	
 	AudioHandler.create_temporary_audio(self, footsteps_concrete.pick_random(), -5, randf_range(0.75, 2.1), "SFX")
 
