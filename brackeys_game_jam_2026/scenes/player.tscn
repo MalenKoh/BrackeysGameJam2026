@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://b50cosh00xiej" path="res://scripts/normal/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://dn0rvr26ixg7" path="res://assets/sprites/top-down_guy-Sheet.png" id="2_g2els"]
 [ext_resource type="AnimationLibrary" uid="uid://dhrb2tvias1pg" path="res://assets/animation_libraries/None.res" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://cthaghggkd6tn" path="res://scripts/normal/entitySFX.gd" id="4_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://cgblsapcfsfa8" path="res://assets/audio/player/player_equip.wav" id="5_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://yeuxbbxhjv41" path="res://assets/audio/player/drop_item.mp3" id="6_fjrip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("2_g2els")
@@ -137,5 +140,22 @@ shape = SubResource("CircleShape2D_g4v7s")
 libraries/ = SubResource("AnimationLibrary_qlg0r")
 libraries/None = ExtResource("3_qhqgy")
 
+[node name="EntitySFX" type="Node2D" parent="." unique_id=2815532]
+script = ExtResource("4_qlg0r")
+
+[node name="Step" type="Timer" parent="EntitySFX" unique_id=438396701]
+wait_time = 0.4
+one_shot = true
+
+[node name="Equip" type="AudioStreamPlayer" parent="." unique_id=1090774327]
+stream = ExtResource("5_tuyoq")
+volume_db = -5.0
+pitch_scale = 2.0
+
+[node name="Drop" type="AudioStreamPlayer" parent="." unique_id=1036535628]
+stream = ExtResource("6_fjrip")
+volume_db = -10.0
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="EntitySFX/Step" to="EntitySFX" method="_on_step_timeout"]

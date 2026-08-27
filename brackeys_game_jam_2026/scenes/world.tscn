@@ -38,6 +38,23 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_i7141")
 
+[sub_resource type="Environment" id="Environment_g4v7s"]
+background_mode = 3
+background_energy_multiplier = 16.0
+ambient_light_source = 2
+ambient_light_energy = 10.44
+glow_enabled = true
+glow_bloom = 1.0
+fog_light_energy = 6.77
+fog_sun_scatter = 2.3
+fog_density = 0.7395
+fog_height = 117.51
+fog_height_density = 0.305
+volumetric_fog_enabled = true
+volumetric_fog_density = 2.65
+
+[sub_resource type="Compositor" id="Compositor_yf5fn"]
+
 [node name="World" type="Node2D" unique_id=1059049741]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1454472332]
@@ -50,11 +67,12 @@ tile_set = SubResource("TileSet_g4v7s")
 resource = ExtResource("3_k0juu")
 
 [node name="Player" parent="." unique_id=997754516 instance=ExtResource("1_nnsk1")]
-position = Vector2(45, -6)
+position = Vector2(10, -18)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1842465080]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
+position_smoothing_speed = 2.0
 drag_left_margin = 0.5
 drag_top_margin = 0.5
 drag_right_margin = 0.5
@@ -62,3 +80,7 @@ drag_bottom_margin = 0.5
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=993633121]
 color = Color(0, 0, 0, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=583551453]
+environment = SubResource("Environment_g4v7s")
+compositor = SubResource("Compositor_yf5fn")

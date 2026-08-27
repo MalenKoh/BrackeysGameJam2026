@@ -10,6 +10,9 @@ var max_items : int = 2
 
 #preload
 const DROPPED_ITEM = preload("uid://c1q3orxqixvmq")
+const DROP_ITEM = preload("uid://yeuxbbxhjv41")
+const PLAYER_EQUIP = preload("uid://cgblsapcfsfa8")
+const HOLD_ITEM = preload("uid://645sl3vcf6pa")
 
 func _ready() -> void:
 	for i : int in range(max_items):
@@ -31,7 +34,9 @@ func add_to_inventory(item: DroppedItem) -> void:
 	if key == -1:
 		full_inventory()
 		return
-		
+	
+	AudioHandler.create_temporary_audio(player, PLAYER_EQUIP, -5, 2, "SFX")
+	
 	player_UI.update_item(key, item.resource.item_sprite)
 	
 	inventory_resources[key] = item.resource
@@ -39,7 +44,6 @@ func add_to_inventory(item: DroppedItem) -> void:
 	
 	if key == current_key:
 		equip_item(item.resource)
-
 func swap_item(key : int) -> void:
 	if (key == current_key): return
 
@@ -50,6 +54,7 @@ func swap_item(key : int) -> void:
 	
 	if inventory_items[current_key] != null:
 		inventory_items[current_key].item_active = true
+		AudioHandler.create_temporary_audio(player, HOLD_ITEM, -10, 1.5, "SFX")
 	
 	player_UI.select_slot(key)
 func remove_item(key : int) -> void:
@@ -71,6 +76,8 @@ func drop_item() -> void:
 	remove_item(current_key)
 	
 	var item_drop : DroppedItem = DROPPED_ITEM.instantiate()
+	
+	AudioHandler.create_temporary_audio(player, DROP_ITEM, -10, 1.5, "SFX")
 	
 	item_drop.global_position = player.global_position
 	item_drop.resource = item_resource
