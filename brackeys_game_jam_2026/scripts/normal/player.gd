@@ -41,11 +41,17 @@ func _physics_process(_delta: float) -> void:
 	
 func update_animation(moving : bool) -> void:
 	var next_animation : String = ""
+	var animation_library : String = "None"
+	var held_item : BaseItem = PlayerGlobal.get_held_item()
 	
+	#rint(held_item.resource)
+	if held_item != null:
+		animation_library = held_item.resource.animation_library
+		
 	if !moving:
-		next_animation = "None/Idle"
+		next_animation = animation_library + "/Idle"
 	else:
-		next_animation = "None/Walking"
+		next_animation = animation_library + "/Walking"
 	
 	if animation_player.current_animation == next_animation: return
 	animation_player.play(next_animation)
@@ -53,7 +59,7 @@ func update_animation(moving : bool) -> void:
 func look_at_mouse() -> void:
 	var offset: Vector2 = get_global_mouse_position() - global_position
 	var angle: float = offset.angle()
-	angle -= PI / 2
+	angle += PI / 2
 	global_rotation = angle
 	
 func drop_item() -> void:

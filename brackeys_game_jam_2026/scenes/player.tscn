@@ -3,10 +3,16 @@
 [ext_resource type="Script" uid="uid://b50cosh00xiej" path="res://scripts/normal/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://dn0rvr26ixg7" path="res://assets/sprites/top-down_guy-Sheet.png" id="2_g2els"]
 [ext_resource type="AnimationLibrary" uid="uid://dhrb2tvias1pg" path="res://assets/animation_libraries/None.res" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://cp46g674yn7qa" path="res://assets/sprites/top-down_guy_flashlight-Sheet.png" id="3_tuyoq"]
+[ext_resource type="AnimationLibrary" uid="uid://d4hx1f0ru643p" path="res://assets/animation_libraries/Flashlight.res" id="4_fjrip"]
 [ext_resource type="Script" uid="uid://cthaghggkd6tn" path="res://scripts/normal/entitySFX.gd" id="4_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("2_g2els")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_po81t"]
+atlas = ExtResource("3_tuyoq")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
@@ -21,6 +27,18 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("2_g2els")
 region = Rect2(96, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vj8d1"]
+atlas = ExtResource("3_tuyoq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aa2pa"]
+atlas = ExtResource("3_tuyoq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jihm"]
+atlas = ExtResource("3_tuyoq")
+region = Rect2(96, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
 "frames": [{
@@ -31,7 +49,10 @@ animations = [{
 "name": &"Idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_po81t")
+}],
 "loop": 1,
 "name": &"Idle_Flashlight",
 "speed": 5.0
@@ -53,10 +74,22 @@ animations = [{
 "name": &"Walking",
 "speed": 9.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_po81t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vj8d1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aa2pa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jihm")
+}],
 "loop": 1,
 "name": &"Walking_Flashlight",
-"speed": 5.0
+"speed": 9.0
 }]
 
 [sub_resource type="Gradient" id="Gradient_g2els"]
@@ -70,6 +103,33 @@ fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 12.0415945
+
+[sub_resource type="Animation" id="Animation_smehm"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle_Flashlight"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:sprite_frames")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_g4v7s")]
+}
 
 [sub_resource type="Animation" id="Animation_dqkch"]
 length = 0.001
@@ -112,6 +172,7 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qlg0r"]
 _data = {
+&"Idle": SubResource("Animation_smehm"),
 &"RESET": SubResource("Animation_dqkch")
 }
 
@@ -143,6 +204,7 @@ shape = SubResource("CircleShape2D_g4v7s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2122529458]
 libraries/ = SubResource("AnimationLibrary_qlg0r")
+libraries/Flashlight = ExtResource("4_fjrip")
 libraries/None = ExtResource("3_qhqgy")
 
 [node name="EntitySFX" type="Node2D" parent="." unique_id=2815532]

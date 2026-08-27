@@ -7,10 +7,10 @@
 script = ExtResource("1_0ywi5")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1877536056]
-position = Vector2(0, 32)
+rotation = 3.1415927
 energy = 0.8
 shadow_enabled = true
 texture = ExtResource("1_lkaa1")
-offset = Vector2(0, 40)
+offset = Vector2(0, 80)
 texture_scale = 2.0
 height = 290.0
