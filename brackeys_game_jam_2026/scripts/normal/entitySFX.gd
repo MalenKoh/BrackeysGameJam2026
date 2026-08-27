@@ -29,7 +29,7 @@ func play_footstep(time:float) -> void:
 	step_cd = true
 	step.start(time)
 	
-	AudioHandler.create_temporary_audio(self, footsteps_concrete.pick_random(), -5, randf_range(0.75, 2.1), "SFX")
+	AudioHandler.create_temporary_audio(self, footsteps_concrete.pick_random(), 4, randf_range(0.75, 2.1), "SFX")
 
 func _on_step_timeout() -> void:
 	step_cd = false
