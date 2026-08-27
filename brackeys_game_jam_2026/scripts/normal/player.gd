@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 class_name Player
 
 const SPEED: int = 75
@@ -17,26 +17,27 @@ func _process(_delta: float) -> void:
 	drop_item()
 	look_at_mouse()
 	
-func _physics_process(delta: float) -> void:
-	var delta_speed = SPEED * delta
-	
-	var moving : bool = true
+func _physics_process(_delta: float) -> void:
+	var next_speed : Vector2 = Vector2.ZERO
 	
 	if Input.is_action_pressed("move_left"):
-		position.x -= delta_speed
+		next_speed = Vector2(-SPEED, 0)
 	elif Input.is_action_pressed("move_right"):
-		position.x += delta_speed
+		next_speed = Vector2(SPEED, 0)
 	elif Input.is_action_pressed("move_up"):
-		position.y -= delta_speed
+		next_speed = Vector2(0, -SPEED)
 	elif Input.is_action_pressed("move_down"):
-		position.y += delta_speed
-	else:
-		moving = false
+		next_speed = Vector2(0, SPEED)
 	
-	if moving:
+	velocity = next_speed
+	
+	if next_speed != Vector2.ZERO:
 		entity_sfx.play_footstep()
+		update_animation(true)
+	else:
+		update_animation(false)
 		
-	update_animation(moving)
+	move_and_slide()
 	
 func update_animation(moving : bool) -> void:
 	var next_animation : String = ""
