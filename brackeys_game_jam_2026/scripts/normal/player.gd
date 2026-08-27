@@ -6,6 +6,7 @@ const SPEED: int = 75
 #children
 @onready var area_2d: Area2D = $Area2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var entity_sfx: EntitySFX = $EntitySFX
 
 func _ready() -> void:
 	PlayerGlobal.player = self
@@ -31,6 +32,9 @@ func _physics_process(delta: float) -> void:
 		position.y += delta_speed
 	else:
 		moving = false
+	
+	if moving:
+		entity_sfx.play_footstep()
 		
 	update_animation(moving)
 	
