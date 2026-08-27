@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 const SPEED: int = 75
+const DETECT_RADIUS = 130 #radius of the flashlight
 
 #children
 @onready var area_2d: Area2D = $Area2D

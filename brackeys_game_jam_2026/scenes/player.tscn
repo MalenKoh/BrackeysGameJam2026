@@ -131,10 +131,12 @@ sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"Idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=257456648]
+position = Vector2(2.861023e-06, -2.861023e-06)
+scale = Vector2(1.6562499, 1.6562499)
 energy = 0.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_p4spw")
-texture_scale = 5.0
+texture_scale = 2.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1184062858]
 

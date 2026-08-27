@@ -29,6 +29,10 @@ AudioHandler="*uid://bnb7hd3upsfsw"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+navigation_polygon_source_geometry_group=""
+
 [gui]
 
 theme/custom_font="uid://cw2xbsigi2txl"

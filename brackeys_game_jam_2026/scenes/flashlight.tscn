@@ -5,6 +5,7 @@
 
 [node name="Flashlight" type="Node2D" unique_id=1372089196]
 script = ExtResource("1_0ywi5")
+metadata/_edit_horizontal_guides_ = [7.0, 135.0]
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1877536056]
 position = Vector2(0, 32)
@@ -14,3 +15,10 @@ texture = ExtResource("1_lkaa1")
 offset = Vector2(0, 40)
 texture_scale = 2.0
 height = 290.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=183421412]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1062687219]
+polygon = PackedVector2Array(-14, 7, -24, 135, 23, 136, 13, 7)
