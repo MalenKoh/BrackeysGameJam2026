@@ -1,4 +1,4 @@
-[gd_resource type="Resource" format=3 uid="uid://gqjkd4bnldmi"]
+[gd_resource type="Resource" script_class="KeyResource" format=3 uid="uid://gqjkd4bnldmi"]
 
 [ext_resource type="PackedScene" uid="uid://bw0wg3p48fv4" path="res://scenes/item.tscn" id="1_iqg4b"]
 [ext_resource type="Texture2D" uid="uid://c1x3foj7ph81r" path="res://assets/sprites/paper_icon.png" id="2_ejqnh"]
