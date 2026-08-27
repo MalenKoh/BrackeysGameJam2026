@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://drqk0kdmy4n0t"
+path="res://.godot/imported/stress.mp3-cb1f4608c3602df2216f4a22640fa5d1.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music tracks/stress.mp3"
+dest_files=["res://.godot/imported/stress.mp3-cb1f4608c3602df2216f4a22640fa5d1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

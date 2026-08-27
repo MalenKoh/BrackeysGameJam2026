@@ -12,9 +12,6 @@ func _ready() -> void:
 	PlayerGlobal.player = self
 
 func _process(_delta: float) -> void:
-	interact()
-	choose_item()
-	drop_item()
 	look_at_mouse()
 	
 func _physics_process(_delta: float) -> void:
@@ -22,9 +19,11 @@ func _physics_process(_delta: float) -> void:
 	var next_speed : Vector2 = Vector2.ZERO
 	var sprinting : bool = false
 	var walk_time : float = 0.4
+	var walk_volume : float = -5
 	
 	if Input.is_action_pressed("sprint"):
 		walk_time = 0.2
+		walk_volume = 4
 		speed_magnitude = SPRINT_SPEED
 		sprinting = true
 		
@@ -40,12 +39,17 @@ func _physics_process(_delta: float) -> void:
 	velocity = next_speed
 	
 	if next_speed != Vector2.ZERO:
-		entity_sfx.play_footstep(walk_time)
+		entity_sfx.play_footstep(walk_time, walk_volume)
 		update_animation(true, sprinting)
 	else:
 		update_animation(false, sprinting)
 		
 	move_and_slide()
+
+func _input(_event: InputEvent) -> void:
+	interact()
+	choose_item()
+	drop_item()
 	
 func update_animation(moving : bool, sprinting : bool) -> void:
 	var next_animation : String = ""
@@ -53,7 +57,7 @@ func update_animation(moving : bool, sprinting : bool) -> void:
 	var held_item : BaseItem = PlayerGlobal.get_held_item()
 	
 	#rint(held_item.resource)
-	if held_item != null:
+	if held_item != null && held_item.resource.animation_library:
 		animation_library = held_item.resource.animation_library
 		
 	if !moving:
@@ -101,10 +105,15 @@ func interact() -> void:
 	var nearest_item : DroppedItem
 	
 	for area : Area2D in area_2d.get_overlapping_areas():
-		var local_dist : float = (global_position - area.global_position).length() 
+		var local_dist : float = (global_position - area.global_position).length()
+		
 		if (!distance || local_dist < distance):
 			distance = local_dist
 			nearest_item = area.get_parent()
 	
 	if nearest_item:
+		if nearest_item is FakeItem:
+			nearest_item.vanish()
+			return
+			
 		PlayerGlobal.add_to_inventory(nearest_item)

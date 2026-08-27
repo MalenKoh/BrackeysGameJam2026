@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://kx2h43psnixw"]
+
+[ext_resource type="Script" uid="uid://wxp0pe8y55c" path="res://scripts/normal/door.gd" id="1_hpvv5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(64, 20)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yf5fn"]
+polygon = PackedVector2Array(-32, -4, 32, -4, 32, 4, -32, 4)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yf5fn"]
+radius = 16.0
+height = 72.0
+
+[node name="Door" type="StaticBody2D" unique_id=1129080956]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_hpvv5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1102501473]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=387780800]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=955090083]
+occluder = SubResource("OccluderPolygon2D_yf5fn")
+
+[node name="PlayerRange" type="Area2D" parent="." unique_id=289403138]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerRange" unique_id=216528036]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_yf5fn")
+
+[connection signal="area_entered" from="PlayerRange" to="." method="_on_player_range_area_entered"]
+[connection signal="area_exited" from="PlayerRange" to="." method="_on_player_range_area_exited"]
