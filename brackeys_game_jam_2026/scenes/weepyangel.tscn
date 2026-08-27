@@ -111,6 +111,7 @@ shape = SubResource("CircleShape2D_bclok")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1573086317]
 
 [node name="PathTimer" type="Timer" parent="." unique_id=1570058031]
+wait_time = 0.16
 
 [node name="Area2D" type="Area2D" parent="." unique_id=871035273]
 collision_layer = 0
