@@ -3,30 +3,38 @@
 [ext_resource type="Script" uid="uid://4dw8511mrk63" path="res://scripts/normal/base_item.gd" id="1_4gq7n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
-radius = 30.016663
+radius = 21.023796
 
 [node name="Item" type="Node2D" unique_id=1308810569]
 script = ExtResource("1_4gq7n")
 
 [node name="Tooltip" type="Control" parent="." unique_id=1625677652]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
-[node name="Container" type="Container" parent="Tooltip" unique_id=903552649]
-layout_mode = 0
-offset_left = -44.0
-offset_top = -36.0
-offset_right = 45.0
-offset_bottom = 24.0
+[node name="CenterContainer" type="CenterContainer" parent="Tooltip" unique_id=303142269]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.5
+offset_top = -40.0
+offset_right = 35.5
+grow_horizontal = 2
+grow_vertical = 0
 
-[node name="Label" type="Label" parent="Tooltip/Container" unique_id=556942125]
+[node name="Label" type="Label" parent="Tooltip/CenterContainer" unique_id=556942125]
+modulate = Color(0, 0, 0, 1)
 light_mask = 0
 visibility_layer = 2
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "E to Pick Up"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 10
+text = "E to pick up"
+horizontal_alignment = 1
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1024092975]
 
