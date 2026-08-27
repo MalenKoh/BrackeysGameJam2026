@@ -18,7 +18,10 @@ func _ready() -> void:
 	for i : int in range(max_items):
 		inventory_items.append(null)
 		inventory_resources.append(null)
-		
+
+func get_held_item() -> BaseItem:
+	return inventory_items[current_key]
+	
 func add_to_inventory(item: DroppedItem) -> void:
 	var key : int = -1
 	
@@ -42,8 +45,11 @@ func add_to_inventory(item: DroppedItem) -> void:
 	inventory_resources[key] = item.resource
 	item.queue_free()
 	
-	if key == current_key:
-		equip_item(item.resource)
+	equip_item(item.resource)
+	
+	if key != current_key:
+		inventory_items[key].item_active = false
+		
 func swap_item(key : int) -> void:
 	if (key == current_key): return
 
@@ -67,6 +73,8 @@ func remove_item(key : int) -> void:
 		
 func equip_item(item_resource : ItemResource) -> void:
 	inventory_items[current_key] = item_resource.item_scene.instantiate()
+	inventory_items[current_key].resource = item_resource
+	
 	player.add_child(inventory_items[current_key])
 
 func drop_item() -> void:

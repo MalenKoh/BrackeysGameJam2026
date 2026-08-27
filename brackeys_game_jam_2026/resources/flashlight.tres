@@ -8,4 +8,5 @@
 script = ExtResource("2_7rxx2")
 item_name = "Flashlight"
 item_sprite = ExtResource("2_iekkm")
+animation_library = "Flashlight"
 item_scene = ExtResource("1_wvx58")
