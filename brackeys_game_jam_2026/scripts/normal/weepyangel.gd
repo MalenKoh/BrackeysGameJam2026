@@ -15,11 +15,13 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	var dir = to_local(navAgent.get_next_path_position()).normalized()
-	var wah = navAgent.get_path_length()
-	var ang = Vector2(player.position.x - self.position.x,player.position.y - self.position.y).angle()
+	var truepos = Vector2(player.position.x - self.position.x,player.position.y - self.position.y)
+	var wah = sqrt((truepos.x*truepos.x) + (truepos.y*truepos.y)) #hypo?
+	var ang = truepos.angle()
 	#check if flashlight on
-	if flashed || wah<5:
+	if flashed || wah<12:
 		#walking to player
+		print(str(wah))
 		velocity=Vector2(0,0)
 	else:
 		velocity= dir*WALKSPEED
