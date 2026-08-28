@@ -10,8 +10,8 @@ const TRANSITION_TINNITUS_CLARITY = preload("uid://b32cowj2u3asa")
 
 #sanity mechanic
 var sane : bool = false
-var clarity_min_time : float = 40
-var clarity_max_time : float = 60
+var clarity_min_time : float = 1
+var clarity_max_time : float = 1
 var player_sanity: int = 50:
 	set(value):
 		player_sanity = clampi(value, 0, 100)
