@@ -8,13 +8,12 @@ class_name World
 const TRANSITION_HEARTBEAT_INSANE = preload("uid://dlsk6asahqgv4")
 const TRANSITION_TINNITUS_CLARITY = preload("uid://b32cowj2u3asa")
 
+#sanity mechanic
 var sane : bool = false
-var player : Player
-var player_ui : PlayerUI
-var crt_effect : ColorRect
-var player_sanity: int = 0:
+var clarity_min_time : float = 40
+var clarity_max_time : float = 60
+var player_sanity: int = 50:
 	set(value):
-		print(value)
 		player_sanity = clampi(value, 0, 100)
 		
 		if (player_sanity == 100):
@@ -22,6 +21,11 @@ var player_sanity: int = 0:
 		elif !sane:
 			transition_crt(set_crt_effects(), 0.5, Tween.TRANS_ELASTIC)
 
+var player : Player
+var player_ui : PlayerUI
+var crt_effect : ColorRect
+
+#signals
 signal update_sanity(sanity_to_add : int)
 signal clarity_begins()
 signal insanity_begins()
@@ -52,10 +56,6 @@ func _ready() -> void:
 	crt_effect = player_ui.crt_effect
 	
 	update_sanity.connect(add_sanity)
-	clarity_timer.start(randi_range(2, 2))
-	
-	await clarity_timer.timeout
-	shift_to_clarity()
 
 func add_sanity(sanity_to_add : int) -> void:
 	player_sanity += sanity_to_add
@@ -84,14 +84,14 @@ func shift_to_clarity() -> void:
 	
 	tinnitus.queue_free()
 	
-	clarity_timer.start(randi_range(1, 1))
+	clarity_timer.start(randf_range(clarity_min_time, clarity_max_time))
 	
 	await clarity_timer.timeout
 	
 	shift_to_insanity()
 	
 func shift_to_insanity() -> void:
-	player_sanity = 0
+	player_sanity = 50
 	player.camera_2d.position_smoothing_speed = 1
 	
 	AudioServer.set_bus_effect_enabled(1, 0, true)

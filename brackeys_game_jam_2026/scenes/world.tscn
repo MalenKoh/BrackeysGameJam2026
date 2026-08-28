@@ -6,9 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cw20ibg6lo01u" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="Texture2D" uid="uid://bvd2tfcmnjexq" path="res://assets/sprites/tilesets.png" id="1_qfnet"]
 [ext_resource type="Texture2D" uid="uid://dbayxn6xewnyy" path="res://assets/sprites/wall_sheet.png" id="2_qfnet"]
-[ext_resource type="Resource" uid="uid://c7m707d866pc4" path="res://resources/flashlight.tres" id="3_k0juu"]
-[ext_resource type="Resource" uid="uid://gqjkd4bnldmi" path="res://resources/key.tres" id="7_4mrxx"]
-[ext_resource type="PackedScene" uid="uid://bovemhkpbg5fd" path="res://scenes/fake_item.tscn" id="10_w7kh3"]
+[ext_resource type="Resource" uid="uid://b273tkwsvn3fu" path="res://resources/pills.tres" id="3_7r4gi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i7141"]
 texture = ExtResource("1_qfnet")
@@ -620,14 +618,6 @@ tile_set = SubResource("TileSet_yf5fn")
 
 [node name="Player_UI" parent="." unique_id=64824392 instance=ExtResource("1_71j4m")]
 
-[node name="Item" parent="." unique_id=1308810569 instance=ExtResource("1_4wyf3")]
-position = Vector2(190, -12)
-resource = ExtResource("3_k0juu")
-
-[node name="Item2" parent="." unique_id=1864130732 instance=ExtResource("1_4wyf3")]
-position = Vector2(-62, -37)
-resource = ExtResource("7_4mrxx")
-
 [node name="Player" parent="." unique_id=997754516 instance=ExtResource("1_nnsk1")]
 position = Vector2(193, -51)
 
@@ -642,39 +632,28 @@ color = Color(0, 0, 0, 1)
 wait_time = 3.0
 one_shot = true
 
-[node name="FakeItem" parent="." unique_id=320908779 instance=ExtResource("10_w7kh3")]
-position = Vector2(107, -64)
-resource = ExtResource("7_4mrxx")
-
-[node name="FakeItem3" parent="." unique_id=1990199408 instance=ExtResource("10_w7kh3")]
-position = Vector2(273, -55)
-resource = ExtResource("7_4mrxx")
-
-[node name="FakeItem2" parent="." unique_id=721120958 instance=ExtResource("10_w7kh3")]
-position = Vector2(368, -129)
-resource = ExtResource("7_4mrxx")
-
-[node name="FakeItem4" parent="." unique_id=1973334374 instance=ExtResource("10_w7kh3")]
-position = Vector2(99, -26)
-resource = ExtResource("7_4mrxx")
-
-[node name="FakeItem5" parent="." unique_id=680217050 instance=ExtResource("10_w7kh3")]
-position = Vector2(265, -17)
-resource = ExtResource("7_4mrxx")
-
-[node name="FakeItem6" parent="." unique_id=1059029041 instance=ExtResource("10_w7kh3")]
-position = Vector2(360, -91)
-resource = ExtResource("7_4mrxx")
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1134181056]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_e3hyu")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=422952869]
-position = Vector2(-15, -108)
+visible = false
+position = Vector2(22, -110)
 energy = 0.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_w7kh3")
 texture_scale = 8.3
+
+[node name="DroppedItem" parent="." unique_id=1308810569 instance=ExtResource("1_4wyf3")]
+position = Vector2(75, -37)
+resource = ExtResource("3_7r4gi")
+
+[node name="DroppedItem2" parent="." unique_id=2135722447 instance=ExtResource("1_4wyf3")]
+position = Vector2(89.545, -37)
+resource = ExtResource("3_7r4gi")
+
+[node name="DroppedItem3" parent="." unique_id=164977814 instance=ExtResource("1_4wyf3")]
+position = Vector2(110.985, -37)
+resource = ExtResource("3_7r4gi")
 
 [connection signal="timeout" from="ClarityTimer" to="." method="_on_timer_timeout"]
