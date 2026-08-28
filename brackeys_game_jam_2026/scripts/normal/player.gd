@@ -7,6 +7,7 @@ const SPRINT_SPEED: int = 125
 @onready var area_2d: Area2D = $Area2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var entity_sfx: EntitySFX = $EntitySFX
+@onready var camera_2d: Camera2D = $Camera2D
 
 func _ready() -> void:
 	PlayerGlobal.player = self

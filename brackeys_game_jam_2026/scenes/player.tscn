@@ -218,4 +218,13 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1891653893]
 shape = SubResource("CircleShape2D_7r4gi")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=394557467]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+position_smoothing_speed = 1.0
+drag_left_margin = 0.5
+drag_top_margin = 0.5
+drag_right_margin = 0.5
+drag_bottom_margin = 0.5
+
 [connection signal="timeout" from="EntitySFX/Step" to="EntitySFX" method="_on_step_timeout"]

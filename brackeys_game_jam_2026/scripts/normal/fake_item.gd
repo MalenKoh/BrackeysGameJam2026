@@ -38,4 +38,5 @@ func on_insanity() -> void:
 func vanish() -> void:
 	if interactable:
 		AudioHandler.create_temporary_audio(PlayerGlobal.player, distortion.pick_random(), -3, randf_range(0.3, 0.8), "SFX")
+		world.add_sanity(-10)
 		queue_free()

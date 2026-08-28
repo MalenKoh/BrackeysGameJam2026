@@ -631,15 +631,6 @@ resource = ExtResource("7_4mrxx")
 [node name="Player" parent="." unique_id=997754516 instance=ExtResource("1_nnsk1")]
 position = Vector2(193, -51)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1842465080]
-zoom = Vector2(3, 3)
-position_smoothing_enabled = true
-position_smoothing_speed = 1.0
-drag_left_margin = 0.5
-drag_top_margin = 0.5
-drag_right_margin = 0.5
-drag_bottom_margin = 0.5
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=583551453]
 environment = SubResource("Environment_g4v7s")
 compositor = SubResource("Compositor_yf5fn")
@@ -663,7 +654,20 @@ resource = ExtResource("7_4mrxx")
 position = Vector2(368, -129)
 resource = ExtResource("7_4mrxx")
 
+[node name="FakeItem4" parent="." unique_id=1973334374 instance=ExtResource("10_w7kh3")]
+position = Vector2(99, -26)
+resource = ExtResource("7_4mrxx")
+
+[node name="FakeItem5" parent="." unique_id=680217050 instance=ExtResource("10_w7kh3")]
+position = Vector2(265, -17)
+resource = ExtResource("7_4mrxx")
+
+[node name="FakeItem6" parent="." unique_id=1059029041 instance=ExtResource("10_w7kh3")]
+position = Vector2(360, -91)
+resource = ExtResource("7_4mrxx")
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1134181056]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_e3hyu")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=422952869]
