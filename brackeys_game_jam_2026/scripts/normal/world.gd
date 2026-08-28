@@ -21,20 +21,37 @@ var shader_params : Array[String] = [
 	"scanline_intensity",
 	"crt_brightness",
 	"crt_ghost",
-	"crt_white"
+	"crt_white_noise"
 ]
+
+var crt_clarity_values : Dictionary[String, float] = {
+	"crt_curve" : 0.03,
+	"scanline_intensity" : 0,
+	"crt_brightness" : 1,
+	"crt_ghost" : 0,
+	"crt_white_noise" : 0,
+}
+
+var crt_insanity_values : Dictionary[String, float] = {
+	"crt_curve" : 0.075,
+	"scanline_intensity" : 1.0,
+	"crt_brightness" : 0.85,
+	"crt_ghost" : 0.2,
+	"crt_white_noise" : 0.15,
+}
+
 func _ready() -> void:
 	player = PlayerGlobal.player
 	player_ui = PlayerGlobal.player_UI
 	crt_effect = player_ui.crt_effect
 	
-	#crt_effect.set_instance_shader_parameter("")
-	#shift_to_clarity()
-	
+	shift_to_clarity()
 func shift_to_clarity() -> void:
 	var tween = create_tween()
 	
 	transition_fake_objects("ffffff00", 0.5, Tween.TRANS_CUBIC)
+	transition_crt(crt_clarity_values, 0.5, Tween.TRANS_CUBIC)
+	
 	tween.tween_property(canvas_modulate, "color", Color.from_string("a7a7a7", Color.WHITE), 0.5).set_trans(Tween.TRANS_CUBIC)
 	world_environment.environment.glow_bloom = 0.5
 	
@@ -50,7 +67,7 @@ func shift_to_clarity() -> void:
 	
 	tinnitus.queue_free()
 	
-	clarity_timer.start(randi_range(20, 50))
+	clarity_timer.start(randi_range(1, 1))
 	
 	await clarity_timer.timeout
 	
@@ -60,6 +77,8 @@ func shift_to_insanity() -> void:
 	AudioServer.set_bus_effect_enabled(1, 0, true)
 	
 	transition_fake_objects("ffffff", 6, Tween.TRANS_BOUNCE)
+	transition_crt(crt_insanity_values, 6, Tween.TRANS_BOUNCE)
+	
 	var tween : Tween = create_tween()
 	
 	tween.tween_property(canvas_modulate, "color", Color.BLACK, 6).set_trans(Tween.TRANS_BOUNCE)
@@ -84,3 +103,9 @@ func transition_fake_objects(modulate_value : String, time : float, transition_t
 		var tween : Tween = create_tween()
 		
 		tween.tween_property(object, "modulate", Color.from_string(modulate_value, Color.WHITE), time).set_trans(transition_type)
+
+func transition_crt(dictionary_values : Dictionary, time : float, transition_type : Tween.TransitionType) -> void:
+	for parameter : String in shader_params:
+		var tween : Tween = create_tween()
+		
+		tween.tween_property(crt_effect.material, "shader_parameter/"+parameter, dictionary_values[parameter], time).set_trans(transition_type)
