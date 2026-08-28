@@ -18,13 +18,14 @@ shader_parameter/vignette_multiplier = 0.0
 [node name="Player_UI" type="CanvasLayer" unique_id=64824392]
 script = ExtResource("1_d6j1s")
 
-[node name="Control" type="Control" parent="." unique_id=1034058811]
+[node name="Hotbar" type="Control" parent="." unique_id=1034058811]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1608.0
 offset_bottom = 1210.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=563034789]
+[node name="HBoxContainer" type="HBoxContainer" parent="Hotbar" unique_id=563034789]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0

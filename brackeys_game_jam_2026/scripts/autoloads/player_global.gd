@@ -14,11 +14,17 @@ const DROP_ITEM = preload("uid://yeuxbbxhjv41")
 const PLAYER_EQUIP = preload("uid://cgblsapcfsfa8")
 const HOLD_ITEM = preload("uid://645sl3vcf6pa")
 
+signal intro_finished()
+
 func _ready() -> void:
+	intro_finished.connect(enable_ui)
+	
 	for i : int in range(max_items):
 		inventory_items.append(null)
 		inventory_resources.append(null)
 
+func enable_ui() -> void:
+	player_UI.hotbar_ui.visible = true
 func get_held_item() -> BaseItem:
 	return inventory_items[current_key]
 	
