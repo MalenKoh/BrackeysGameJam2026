@@ -7,17 +7,10 @@
 script = ExtResource("1_0ywi5")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1877536056]
-rotation = 3.1415927
-energy = 0.8
-shadow_enabled = true
+position = Vector2(0, 56)
+color = Color(1, 1, 0.37254903, 1)
+energy = 0.4
 texture = ExtResource("1_lkaa1")
-offset = Vector2(0, 80)
-texture_scale = 2.0
+offset = Vector2(0, 32)
+texture_scale = 2.5
 height = 290.0
-
-[node name="Area2D" type="Area2D" parent="." unique_id=29409659]
-collision_layer = 8
-collision_mask = 0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=288015507]
-polygon = PackedVector2Array(-13, -9, -23, -146, 22, -146, 14, -10)

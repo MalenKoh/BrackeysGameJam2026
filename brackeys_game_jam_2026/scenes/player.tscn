@@ -195,7 +195,7 @@ animation = &"Idle"
 energy = 0.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_p4spw")
-texture_scale = 5.0
+texture_scale = 2.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1184062858]
 collision_layer = 2
