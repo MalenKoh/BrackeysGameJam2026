@@ -10,5 +10,4 @@ func _on_item_used() -> void:
 	else:
 		AudioHandler.create_temporary_audio(self, LIGHTSWITCH, 0, 2, "SFX")
 	
-	cpoly2d.disabled=point_light_2d.enabled
 	point_light_2d.enabled = !point_light_2d.enabled

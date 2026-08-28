@@ -2,6 +2,7 @@ extends CanvasLayer
 class_name PlayerUI
 
 @onready var h_box_container: HBoxContainer = $Control/HBoxContainer
+@onready var crt_effect: ColorRect = $CRTEffect
 
 const HOTBAR_SLOT = preload("uid://df11ujghokx6o")
 

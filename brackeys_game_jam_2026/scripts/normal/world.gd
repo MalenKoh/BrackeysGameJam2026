@@ -10,12 +10,25 @@ const TRANSITION_TINNITUS_CLARITY = preload("uid://b32cowj2u3asa")
 
 var sane : bool = false
 var player : Player
+var player_ui : PlayerUI
+var crt_effect : ColorRect
 
 signal clarity_begins()
 signal insanity_begins()
 
+var shader_params : Array[String] = [
+	"crt_curve",
+	"scanline_intensity",
+	"crt_brightness",
+	"crt_ghost",
+	"crt_white"
+]
 func _ready() -> void:
 	player = PlayerGlobal.player
+	player_ui = PlayerGlobal.player_UI
+	crt_effect = player_ui.crt_effect
+	
+	#crt_effect.set_instance_shader_parameter("")
 	#shift_to_clarity()
 	
 func shift_to_clarity() -> void:
