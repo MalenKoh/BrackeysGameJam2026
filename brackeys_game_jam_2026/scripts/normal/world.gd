@@ -12,29 +12,54 @@ var sane : bool = false
 var player : Player
 var player_ui : PlayerUI
 var crt_effect : ColorRect
-
+var player_sanity: int = 100
 signal clarity_begins()
 signal insanity_begins()
 
 var shader_params : Array[String] = [
-	"crt_curve",
 	"scanline_intensity",
 	"crt_brightness",
 	"crt_ghost",
-	"crt_white"
+	"crt_white_noise",
+	"crt_grid",
+	"vignette_multiplier",
 ]
+
+var crt_clarity_values : Dictionary[String, float] = {
+	"crt_curve" : 0.03,
+	"scanline_intensity" : 0,
+	"crt_brightness" : 1,
+	"crt_ghost" : 0,
+	"crt_white_noise" : 0,
+}
+
+var crt_insanity_values : Dictionary[String, float] = {
+	"crt_curve" : 0.075,
+	"scanline_intensity" : 1.0,
+	"crt_brightness" : 0.85,
+	"crt_ghost" : 0.2,
+	"crt_white_noise" : 0.15,
+}
+
 func _ready() -> void:
 	player = PlayerGlobal.player
 	player_ui = PlayerGlobal.player_UI
 	crt_effect = player_ui.crt_effect
 	
-	#crt_effect.set_instance_shader_parameter("")
 	#shift_to_clarity()
+	
+func _process(_delta: float) -> void:
+	transition_crt(set_crt_effects(), 2, Tween.TRANS_BOUNCE)
+	if Input.is_action_just_released("test") and player_sanity > 0:
+		player_sanity -= 10
+		print(player_sanity)
 	
 func shift_to_clarity() -> void:
 	var tween = create_tween()
 	
 	transition_fake_objects("ffffff00", 0.5, Tween.TRANS_CUBIC)
+	transition_crt(crt_clarity_values, 0.5, Tween.TRANS_CUBIC)
+	
 	tween.tween_property(canvas_modulate, "color", Color.from_string("a7a7a7", Color.WHITE), 0.5).set_trans(Tween.TRANS_CUBIC)
 	world_environment.environment.glow_bloom = 0.5
 	
@@ -50,7 +75,7 @@ func shift_to_clarity() -> void:
 	
 	tinnitus.queue_free()
 	
-	clarity_timer.start(randi_range(20, 50))
+	clarity_timer.start(randi_range(1, 1))
 	
 	await clarity_timer.timeout
 	
@@ -60,6 +85,8 @@ func shift_to_insanity() -> void:
 	AudioServer.set_bus_effect_enabled(1, 0, true)
 	
 	transition_fake_objects("ffffff", 6, Tween.TRANS_BOUNCE)
+	transition_crt(crt_insanity_values, 6, Tween.TRANS_BOUNCE)
+	
 	var tween : Tween = create_tween()
 	
 	tween.tween_property(canvas_modulate, "color", Color.BLACK, 6).set_trans(Tween.TRANS_BOUNCE)
@@ -84,3 +111,19 @@ func transition_fake_objects(modulate_value : String, time : float, transition_t
 		var tween : Tween = create_tween()
 		
 		tween.tween_property(object, "modulate", Color.from_string(modulate_value, Color.WHITE), time).set_trans(transition_type)
+
+func transition_crt(dictionary_values : Dictionary, time : float, transition_type : Tween.TransitionType) -> void:
+	for parameter : String in shader_params:
+		var tween : Tween = create_tween()
+		tween.tween_property(crt_effect.material, "shader_parameter/"+parameter, dictionary_values[parameter], time).set_trans(transition_type)
+
+func set_crt_effects() -> Dictionary[String, float]:
+	var crt_values: Dictionary[String, float] = {
+		"scanline_intensity" = 1.0 - float(player_sanity) / 100.0,
+		"crt_brightness" = 0.5 + float(player_sanity) / 200.0,
+		"crt_ghost" = 10.0 - float(player_sanity) / 10.0,
+		"crt_white_noise" = 0.25 - float(player_sanity) / 400.0,
+		"crt_grid" = float(player_sanity) / 100.0,
+		"vignette_multiplier" = 2.0 / 3.0 - float(player_sanity) / 150.0,
+	}
+	return crt_values

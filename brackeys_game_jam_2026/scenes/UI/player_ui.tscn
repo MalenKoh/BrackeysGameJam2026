@@ -5,15 +5,15 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q3y81"]
 shader = ExtResource("2_50a1s")
-shader_parameter/crt_curve = 0.0750000035625
-shader_parameter/scanline_count = 7.0000003325
-shader_parameter/scanline_size = 1.50000007125
+shader_parameter/crt_curve = 0.130000006175
+shader_parameter/scanline_count = 3.04400014459
+shader_parameter/scanline_size = 1.170000055575
 shader_parameter/scanline_intensity = 1.0
-shader_parameter/crt_brightness = 0.850000040375
-shader_parameter/crt_ghost = 0.2000000095
-shader_parameter/crt_white_noise = 0.150000007125
+shader_parameter/crt_brightness = 0.94000004465
+shader_parameter/crt_ghost = 0.0
+shader_parameter/crt_white_noise = 0.0
 shader_parameter/crt_grid = 0.0
-shader_parameter/vignette_multiplier = 0.450000021375
+shader_parameter/vignette_multiplier = 0.0
 
 [node name="Player_UI" type="CanvasLayer" unique_id=64824392]
 script = ExtResource("1_d6j1s")
