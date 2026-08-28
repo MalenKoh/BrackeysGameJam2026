@@ -5,25 +5,18 @@
 [ext_resource type="Texture2D" uid="uid://b80nh1iu128sd" path="res://icon.svg" id="1_rwgxs"]
 [ext_resource type="Resource" uid="uid://c7m707d866pc4" path="res://resources/flashlight.tres" id="3_k0juu"]
 [ext_resource type="Shader" uid="uid://uwwul7yi4rrq" path="res://shaders/crt.gdshader" id="5_71j4m"]
-[ext_resource type="Script" uid="uid://5f56ajsjtqfb" path="res://scripts/autoloads/crt_shader.gd" id="6_qfnet"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uf2qe"]
-shader = ExtResource("5_71j4m")
-shader_parameter/crt_brightness = 1.0
-shader_parameter/crt_ghost = 3.0
-shader_parameter/crt_grid = 0.4
-shader_parameter/crt_white_noise = 0.0
-shader_parameter/crt_curve = 0.05
-
-[sub_resource type="QuadMesh" id="QuadMesh_stk03"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_stk03"]
 shader = ExtResource("5_71j4m")
-shader_parameter/crt_brightness = 1.0
-shader_parameter/crt_ghost = 3.0
-shader_parameter/crt_grid = 0.400000019
-shader_parameter/crt_white_noise = 0.250000011875
-shader_parameter/crt_curve = 0.050000002375
+shader_parameter/crt_curve = 0.0750000035625
+shader_parameter/scanline_count = 7.0000003325
+shader_parameter/scanline_size = 1.5000000712500001
+shader_parameter/scanline_intensity = 1.0
+shader_parameter/crt_brightness = 0.850000040375
+shader_parameter/crt_ghost = 3.0000001425
+shader_parameter/crt_white_noise = 0.150000007125
+shader_parameter/crt_grid = 0.0
+shader_parameter/vignette_multiplier = 0.450000021375
 
 [node name="World" type="Node2D" unique_id=1059049741]
 
@@ -50,12 +43,6 @@ drag_bottom_margin = 0.5
 color = Color(0.011087579, 0.011087579, 0.011087577, 0.8156863)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1224013509]
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer" unique_id=1314936393]
-visible = false
-material = SubResource("ShaderMaterial_uf2qe")
-mesh = SubResource("QuadMesh_stk03")
-script = ExtResource("6_qfnet")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1108457732]
 material = SubResource("ShaderMaterial_stk03")
