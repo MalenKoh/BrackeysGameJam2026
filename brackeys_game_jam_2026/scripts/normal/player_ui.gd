@@ -1,9 +1,11 @@
 extends CanvasLayer
 class_name PlayerUI
 
+@onready var stamina: Control = $Stamina
 @onready var hotbar_ui: Control = $Hotbar
 @onready var h_box_container: HBoxContainer = $Hotbar/HBoxContainer
 @onready var crt_effect: ColorRect = $CRTEffect
+@onready var texture_progress_bar: TextureProgressBar = $Stamina/TextureProgressBar
 
 const HOTBAR_SLOT = preload("uid://df11ujghokx6o")
 
@@ -28,3 +30,10 @@ func select_slot(key : int) -> void:
 
 func update_item(key : int, item_texture : Texture2D) -> void:
 	hotbar[key].update_item(item_texture)
+
+func update_stamina(value : float) -> void:
+	texture_progress_bar.value = value
+
+func reveal_ui() -> void:
+	stamina.visible = true
+	hotbar_ui.visible = true

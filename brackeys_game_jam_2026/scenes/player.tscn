@@ -227,4 +227,9 @@ drag_top_margin = 0.5
 drag_right_margin = 0.5
 drag_bottom_margin = 0.5
 
+[node name="StaminaWait" type="Timer" parent="." unique_id=437269188]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="timeout" from="EntitySFX/Step" to="EntitySFX" method="_on_step_timeout"]
+[connection signal="timeout" from="StaminaWait" to="." method="_on_stamina_wait_timeout"]

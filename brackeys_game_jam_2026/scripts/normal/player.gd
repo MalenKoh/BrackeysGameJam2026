@@ -3,56 +3,83 @@ class_name Player
 
 const SPEED: int = 75
 const SPRINT_SPEED: int = 125
+const STAMINA_REGEN_RATE: float = 10
+const STAMINA_USE_RATE: float = 15
+
+var stamina_regen : bool = false
+var sprinting : bool = false
+
 #children
 @onready var area_2d: Area2D = $Area2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var entity_sfx: EntitySFX = $EntitySFX
 @onready var camera_2d: Camera2D = $Camera2D
+@onready var stamina_wait: Timer = $StaminaWait
 
 func _ready() -> void:
 	PlayerGlobal.player = self
 
 func _process(_delta: float) -> void:
 	look_at_mouse()
-	
-func _physics_process(_delta: float) -> void:
+
+func _physics_process(delta: float) -> void:
 	var speed_magnitude : int = SPEED
 	var next_speed : Vector2 = Vector2.ZERO
-	var sprinting : bool = false
 	var walk_time : float = 0.4
 	var walk_volume : float = -5
 	
-	if Input.is_action_pressed("sprint"):
+	if PlayerGlobal.player_stamina < 100 && stamina_regen:
+		PlayerGlobal.player_stamina += STAMINA_REGEN_RATE*delta
+		
+	if Input.is_action_just_released("sprint"):
+		stamina_wait.stop()
+		stamina_wait.start()
+	
+	if Input.is_action_pressed("move_left"):
+		next_speed = Vector2(-1, 0)
+	elif Input.is_action_pressed("move_right"):
+		next_speed = Vector2(1, 0)
+	elif Input.is_action_pressed("move_up"):
+		next_speed = Vector2(0, -1)
+	elif Input.is_action_pressed("move_down"):
+		next_speed = Vector2(0, 1)
+	
+	if sprinting && PlayerGlobal.player_stamina > 0 && next_speed != Vector2.ZERO:
 		walk_time = 0.2
 		walk_volume = 4
 		speed_magnitude = SPRINT_SPEED
-		sprinting = true
+		stamina_regen = false
+		stamina_wait.stop()
+	elif stamina_wait.is_stopped():
+		stamina_wait.start()
 		
-	if Input.is_action_pressed("move_left"):
-		next_speed = Vector2(-speed_magnitude, 0)
-	elif Input.is_action_pressed("move_right"):
-		next_speed = Vector2(speed_magnitude, 0)
-	elif Input.is_action_pressed("move_up"):
-		next_speed = Vector2(0, -speed_magnitude)
-	elif Input.is_action_pressed("move_down"):
-		next_speed = Vector2(0, speed_magnitude)
-	
-	velocity = next_speed
+	velocity = next_speed*speed_magnitude
 	
 	if next_speed != Vector2.ZERO:
 		entity_sfx.play_footstep(walk_time, walk_volume)
-		update_animation(true, sprinting)
+		update_animation(true)
+		
+		if sprinting:
+			PlayerGlobal.player_stamina -= STAMINA_USE_RATE*delta
 	else:
-		update_animation(false, sprinting)
+		update_animation(false)
 		
 	move_and_slide()
 
 func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("sprint") && PlayerGlobal.player_stamina > 0:
+		sprinting = true
+		
+	if Input.is_action_just_released("sprint") && PlayerGlobal.player_stamina > 0:
+		sprinting = false
+		stamina_wait.stop()
+		stamina_wait.start()
+		
 	interact()
 	choose_item()
 	drop_item()
 	
-func update_animation(moving : bool, sprinting : bool) -> void:
+func update_animation(moving : bool) -> void:
 	var next_animation : String = ""
 	var animation_library : String = "None"
 	var held_item : BaseItem = PlayerGlobal.get_held_item()
@@ -118,3 +145,6 @@ func interact() -> void:
 			return
 			
 		PlayerGlobal.add_to_inventory(nearest_item)
+
+func _on_stamina_wait_timeout() -> void:
+	stamina_regen = true

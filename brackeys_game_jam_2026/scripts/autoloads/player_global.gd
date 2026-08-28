@@ -8,7 +8,13 @@ var inventory_items : Array[BaseItem]
 var current_key : int = 0
 var max_items : int = 2
 
+var player_stamina : float = 100 :
+	set(value):
+		player_stamina = clampf(value, 0, 100)
+		player_UI.update_stamina(value)
+		
 #preload
+
 const DROPPED_ITEM = preload("uid://c1q3orxqixvmq")
 const DROP_ITEM = preload("uid://yeuxbbxhjv41")
 const PLAYER_EQUIP = preload("uid://cgblsapcfsfa8")
@@ -24,7 +30,8 @@ func _ready() -> void:
 		inventory_resources.append(null)
 
 func enable_ui() -> void:
-	player_UI.hotbar_ui.visible = true
+	player_UI.reveal_ui()
+	
 func get_held_item() -> BaseItem:
 	return inventory_items[current_key]
 	
