@@ -1,4 +1,3 @@
-@tool
 extends Node2D 
 class_name DroppedItem
 
@@ -12,6 +11,7 @@ class_name DroppedItem
 var tooltip: Control
 
 @onready var item_sprite: Sprite2D = $ItemSprite
+@onready var area_2d: Area2D = $Area2D
 
 const TOOLTIP = preload("uid://dvq8avv8h2xb7")
 
@@ -19,6 +19,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
 	item_sprite.texture = resource.item_sprite
+	area_2d.area_entered.connect(_on_area_2d_area_entered)
 	
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if !tooltip:

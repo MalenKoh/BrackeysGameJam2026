@@ -1,27 +1,15 @@
 extends Node2D
 class_name EntitySFX
 
-var footsteps_concrete : Array
 var step_cd : bool = false
+var foot_steps : Dictionary[String, AudioStream] = {
+	"Tile" : preload("res://assets/audio/footsteps/footstep_tile_1.mp3"),
+	"Grass" : preload("res://assets/audio/footsteps/foot_step_grass_1.wav"),
+	"Concrete" : preload("res://assets/audio/footsteps/footstep_concrete_1.wav"),
+	"Vent" : preload("res://assets/audio/footsteps/footstep_vent_1.wav")
+}
 
 @onready var step: Timer = $Step
-
-func _ready() -> void:
-	var directory : DirAccess = DirAccess.open("res://assets/audio/footsteps/footsteps_concrete")
-	
-	if (!directory):
-		push_warning("Room data could not be loaded!")
-		return
-		
-	directory.list_dir_begin()
-	
-	for file : String in directory.get_files():
-		if file.ends_with(".import"):
-			file = file.trim_suffix(".import")
-			
-		var sound_file = load(directory.get_current_dir() + "/" + file)
-		
-		footsteps_concrete.append(sound_file)
 
 func play_footstep(time:float, volume : float) -> void:
 	if step_cd: return
@@ -29,7 +17,10 @@ func play_footstep(time:float, volume : float) -> void:
 	step_cd = true
 	step.start(time)
 	
-	AudioHandler.create_temporary_audio(self, footsteps_concrete.pick_random(), volume, randf_range(0.75, 2.1), "SFX")
+	var world : World = get_tree().current_scene
+	var tile_type : String = world.floor_layer.get_cell_tile_data(world.floor_layer.local_to_map(global_position)).get_custom_data("Tile_Type")
+	
+	AudioHandler.create_temporary_audio(self, foot_steps[tile_type], volume, randf_range(0.75, 2.1), "SFX")
 
 func _on_step_timeout() -> void:
 	step_cd = false
