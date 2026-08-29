@@ -22,6 +22,17 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	look_at_mouse()
 
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("sprint") && PlayerGlobal.player_stamina > 0:
+		sprinting = true
+		
+	if Input.is_action_just_released("sprint") && PlayerGlobal.player_stamina > 0:
+		sprinting = false
+	
+	interact()
+	choose_item()
+	drop_item()
+	
 func _physics_process(delta: float) -> void:
 	var speed_magnitude : int = SPEED
 	var next_speed : Vector2 = Vector2.ZERO
@@ -51,6 +62,7 @@ func _physics_process(delta: float) -> void:
 		stamina_regen = false
 		stamina_wait.stop()
 	elif stamina_wait.is_stopped():
+		sprinting = false
 		stamina_wait.start()
 		
 	velocity = next_speed*speed_magnitude
@@ -65,19 +77,6 @@ func _physics_process(delta: float) -> void:
 		update_animation(false)
 		
 	move_and_slide()
-
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("sprint") && PlayerGlobal.player_stamina > 0:
-		sprinting = true
-		
-	if Input.is_action_just_released("sprint") && PlayerGlobal.player_stamina > 0:
-		sprinting = false
-		stamina_wait.stop()
-		stamina_wait.start()
-		
-	interact()
-	choose_item()
-	drop_item()
 	
 func update_animation(moving : bool) -> void:
 	var next_animation : String = ""
