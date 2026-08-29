@@ -11,6 +11,7 @@ class_name Door
 			update_animation()
 @export var connected_lights : Array[PointLight2D]
 @export var unlock_sound : AudioStream = preload("uid://d0pshfe87qs6l")
+@export var hint_message : String = "I need a key..."
 
 @onready var light_occluder_2d: LightOccluder2D = $LightOccluder2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -31,8 +32,8 @@ func update_animation() -> void:
 func _on_player_range_area_entered(_area: Area2D) -> void:
 	player_on_door = true
 	
-	if locked_door:
-		PlayerGlobal.add_monologue("I need a key...")
+	if locked_door && !open:
+		PlayerGlobal.add_monologue(hint_message)
 
 func _on_player_range_area_exited(_area: Area2D) -> void:
 	player_on_door = false

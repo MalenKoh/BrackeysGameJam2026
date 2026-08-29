@@ -5,14 +5,15 @@ class_name World
 @onready var world_environment: WorldEnvironment = $ShadowAffected/WorldEnvironment
 @onready var clarity_timer: Timer = $ClarityTimer
 @onready var tooltips: CanvasLayer = $Tooltips
+@onready var floor_layer: TileMapLayer = $ShadowAffected/Floor
 
 const TRANSITION_HEARTBEAT_INSANE = preload("uid://dlsk6asahqgv4")
 const TRANSITION_TINNITUS_CLARITY = preload("uid://b32cowj2u3asa")
 
 #sanity mechanic
 var sane : bool = false
-var clarity_min_time : float = 1
-var clarity_max_time : float = 1
+var clarity_min_time : float = 10
+var clarity_max_time : float = 20
 var player_sanity: int = 50:
 	set(value):
 		player_sanity = clampi(value, 0, 100)
