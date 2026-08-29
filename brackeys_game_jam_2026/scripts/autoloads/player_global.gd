@@ -2,6 +2,7 @@ extends Node
 
 var player : Player
 var player_UI : PlayerUI
+var world : World
 
 var inventory_resources : Array[ItemResource]
 var inventory_items : Array[BaseItem]
