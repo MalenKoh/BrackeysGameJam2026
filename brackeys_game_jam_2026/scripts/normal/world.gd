@@ -8,6 +8,7 @@ class_name World
 
 const TRANSITION_HEARTBEAT_INSANE = preload("uid://dlsk6asahqgv4")
 const TRANSITION_TINNITUS_CLARITY = preload("uid://b32cowj2u3asa")
+const SETTINGS_MENU = preload("res://scenes/UI/settings.tscn")
 
 #sanity mechanic
 var sane : bool = false
@@ -28,6 +29,9 @@ var crt_effect : ColorRect
 
 #signals
 signal update_sanity(sanity_to_add : int)
+var player_sanity: int = 100
+var settings_menu: Settings
+
 signal clarity_begins()
 signal insanity_begins()
 
@@ -60,6 +64,16 @@ func _ready() -> void:
 	
 func add_sanity(sanity_to_add : int) -> void:
 	player_sanity += sanity_to_add
+	settings_menu = SETTINGS_MENU.instantiate()
+	#shift_to_clarity()
+	
+func _process(_delta: float) -> void:
+	transition_crt(set_crt_effects(), 2, Tween.TRANS_BOUNCE)
+	if Input.is_action_just_released("test") and player_sanity > 0:
+		player_sanity -= 10
+		print(player_sanity)
+	if Input.is_action_just_released("open_settings"):
+		player_ui.add_child(settings_menu)
 
 func shift_to_clarity() -> void:
 	var tween = create_tween()
