@@ -12,8 +12,6 @@ class_name Door
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-const CHARACTER_MONOLOGUE = preload("uid://bje2bac0yon0u")
-
 var open : bool = false
 var player_on_door : bool = false
 
@@ -30,10 +28,7 @@ func update_animation() -> void:
 func _on_player_range_area_entered(_area: Area2D) -> void:
 	player_on_door = true
 	
-	var monologue : Monologue = CHARACTER_MONOLOGUE.instantiate()
-	monologue.set_message("I need a key...")
-	
-	get_tree().current_scene.add_child(monologue)
+	PlayerGlobal.add_monologue("I need a key...")
 
 func _on_player_range_area_exited(_area: Area2D) -> void:
 	player_on_door = false

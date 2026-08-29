@@ -8,35 +8,6 @@ radius = 21.023796
 [node name="DroppedItem" type="Node2D" unique_id=1308810569]
 script = ExtResource("1_xcdl5")
 
-[node name="Tooltip" type="Control" parent="." unique_id=1625677652]
-visible = false
-modulate = Color(0, 0, 0, 1)
-layout_mode = 3
-anchors_preset = 0
-
-[node name="CenterContainer" type="CenterContainer" parent="Tooltip" unique_id=303142269]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -35.5
-offset_top = -40.0
-offset_right = 35.5
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Label" type="Label" parent="Tooltip/CenterContainer" unique_id=556942125]
-modulate = Color(0, 0, 0, 1)
-light_mask = 0
-visibility_layer = 2
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
-theme_override_font_sizes/font_size = 10
-text = "E to pick up"
-horizontal_alignment = 1
-
 [node name="Area2D" type="Area2D" parent="." unique_id=1024092975]
 collision_mask = 2
 

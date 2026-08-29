@@ -19,11 +19,12 @@ offset_right = 35.5
 offset_bottom = 50.205
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="CenterContainer" unique_id=1905239085]
-modulate = Color(0, 0, 0, 1)
+[node name="Label" type="Label" parent="CenterContainer" unique_id=381230529]
 light_mask = 0
 visibility_layer = 2
 layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_color = Color(0.13319641, 0.13319641, 0.13319638, 1)
+theme_override_colors/font_shadow_color = Color(0.51165366, 0.5116537, 0.51165354, 1)
+theme_override_constants/shadow_outline_size = 1
 theme_override_font_sizes/font_size = 10
 horizontal_alignment = 1

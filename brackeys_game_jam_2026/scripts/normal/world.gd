@@ -1,9 +1,10 @@
 extends Node2D
 class_name World
 
-@onready var canvas_modulate: CanvasModulate = $CanvasModulate
-@onready var world_environment: WorldEnvironment = $WorldEnvironment
+@onready var canvas_modulate: CanvasModulate = $ShadowAffected/CanvasModulate
+@onready var world_environment: WorldEnvironment = $ShadowAffected/WorldEnvironment
 @onready var clarity_timer: Timer = $ClarityTimer
+@onready var tooltips: CanvasLayer = $Tooltips
 
 const TRANSITION_HEARTBEAT_INSANE = preload("uid://dlsk6asahqgv4")
 const TRANSITION_TINNITUS_CLARITY = preload("uid://b32cowj2u3asa")
@@ -56,10 +57,10 @@ func _ready() -> void:
 	crt_effect = player_ui.crt_effect
 	
 	update_sanity.connect(add_sanity)
-
+	
 func add_sanity(sanity_to_add : int) -> void:
 	player_sanity += sanity_to_add
-	
+
 func shift_to_clarity() -> void:
 	var tween = create_tween()
 	
