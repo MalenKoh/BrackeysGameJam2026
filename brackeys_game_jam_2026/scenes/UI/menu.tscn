@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://slp16yiwd5gr" path="res://assets/sprites/button_hover/button_hover_5.png" id="19_7oqtn"]
 [ext_resource type="Texture2D" uid="uid://dr27owkhdaxyk" path="res://assets/sprites/button_hover/button_hover_6.png" id="20_1anaf"]
 [ext_resource type="Texture2D" uid="uid://dg7vadoj7tpy3" path="res://assets/sprites/title.png" id="21_kjr1t"]
-[ext_resource type="AudioStream" uid="uid://bbe7bbdh1tc3e" path="res://assets/audio/music tracks/gamejam_menu.mp3" id="22_a511q"]
+[ext_resource type="Script" uid="uid://chriu00yd440g" path="res://scripts/normal/crt_effect.gd" id="22_a511q"]
 [ext_resource type="Shader" uid="uid://uwwul7yi4rrq" path="res://shaders/crt.gdshader" id="22_wk2ro"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_ibeei"]
@@ -182,12 +182,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1345248748]
-stream = ExtResource("22_a511q")
-volume_db = 10.0
-autoplay = true
-bus = &"Music"
+script = ExtResource("22_a511q")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]

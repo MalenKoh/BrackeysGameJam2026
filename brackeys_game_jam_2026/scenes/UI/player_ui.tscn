@@ -5,6 +5,7 @@
 [ext_resource type="Shader" uid="uid://uwwul7yi4rrq" path="res://shaders/crt.gdshader" id="2_50a1s"]
 [ext_resource type="Texture2D" uid="uid://cgcdvtq1x4088" path="res://assets/sprites/Stamina_Frame.png" id="3_rns76"]
 [ext_resource type="Texture2D" uid="uid://b6a45tgor7q5a" path="res://assets/sprites/Stamina_Bar.png" id="4_pl5k2"]
+[ext_resource type="Script" uid="uid://chriu00yd440g" path="res://scripts/normal/crt_effect.gd" id="6_rns76"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q3y81"]
 shader = ExtResource("2_50a1s")
@@ -74,3 +75,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("6_rns76")

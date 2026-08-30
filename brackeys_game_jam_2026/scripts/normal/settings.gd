@@ -57,6 +57,7 @@ func _ready() -> void:
 	master.value = SettingsGlobal.master_volume
 	background_music.value = SettingsGlobal.background_volume
 	sound_effects.value = SettingsGlobal.sfx_volume
+	crt_effects.texture_normal = checkboxes[0] if SettingsGlobal.crt_effects else checkboxes[1]
 	
 func _on_texture_button_pressed() -> void:
 	get_tree().paused = false
@@ -75,9 +76,5 @@ func _on_sound_effects_drag_ended(value_changed: bool) -> void:
 		SettingsGlobal.sfx_volume = sound_effects.value
 	
 func _on_crt_effects_toggled(toggled_on: bool) -> void:
-	if toggled_on:
-		SettingsGlobal.crt_effects = true
-		crt_effects.texture_normal = checkboxes[0]
-	else:
-		SettingsGlobal.crt_effects = false
-		crt_effects.texture_normal = checkboxes[1]
+	SettingsGlobal.crt_effects = not SettingsGlobal.crt_effects
+	crt_effects.texture_normal = checkboxes[0] if SettingsGlobal.crt_effects else checkboxes[1]
