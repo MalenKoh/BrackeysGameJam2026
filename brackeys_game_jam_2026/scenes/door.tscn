@@ -11,14 +11,14 @@ size = Vector2(32, 4.5)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yf5fn"]
 closed = false
 cull_mode = 1
-polygon = PackedVector2Array(-10, -3.999998, 22, -4, 22, 1.999996, -10, 2.0000017)
+polygon = PackedVector2Array(-12, -3.9999979, 24, -4.000004, 24, -4.053116e-06, -12, 2.1457672e-06)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yf5fn"]
 radius = 9.0
 height = 46.0
 
 [sub_resource type="Animation" id="Animation_83dcw"]
-length = 0.001
+length = 0.43333334
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -199,6 +199,18 @@ tracks/14/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("LightOccluder2D:occluder:polygon")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-12, -3.9999979, 24, -4.000004, 24, -4.053116e-06, -12, 2.1457672e-06)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_la1wf"]
 _data = {
@@ -338,6 +350,18 @@ tracks/10/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("LightOccluder2D:occluder:polygon")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-12, -3.9999979, 24, -4.000004, 24, -4.053116e-06, -12, 2.1457672e-06)]
+}
 
 [sub_resource type="Animation" id="Animation_q5w8r"]
 tracks/0/type = "value"
@@ -411,9 +435,8 @@ _data = {
 size = Vector2(32, 4.5)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_la1wf"]
-closed = false
 cull_mode = 1
-polygon = PackedVector2Array(-16, -1.999997, 18, -2.0000029, 18, 1.999997, -16, 2.0000029)
+polygon = PackedVector2Array(-17, -1.9999969, 19, -2.000003, 19, 1.9999969, -17, 2.000003)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_18pbm"]
 radius = 9.0
@@ -588,6 +611,18 @@ tracks/13/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("LightOccluder2D:occluder:polygon")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-17, -1.9999969, 19, -2.000003, 19, 1.9999969, -17, 2.000003)]
 }
 
 [sub_resource type="Animation" id="Animation_ju5n0"]
@@ -769,6 +804,18 @@ tracks/9/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("LightOccluder2D:occluder:polygon")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-12, -3.9999979, 24, -4.000004, 24, 1.999996, -12, 2.0000024)]
+}
 
 [sub_resource type="Animation" id="Animation_pg2b6"]
 resource_name = "door_open"
@@ -949,6 +996,18 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("LightOccluder2D:occluder:polygon")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-12, -3.9999979, 24, -4.000004, 24, 1.999996, -12, 2.0000024)]
 }
 
 [sub_resource type="Animation" id="Animation_ey00f"]

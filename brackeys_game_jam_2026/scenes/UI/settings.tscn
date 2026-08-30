@@ -6,12 +6,14 @@
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_stk03"]
 
 [node name="Settings" type="Control" unique_id=255537925]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_left = 200.0
 offset_top = 200.0
 offset_right = 1400.0
 offset_bottom = 1000.0
+offset_transform_enabled = true
 script = ExtResource("1_t8pki")
 
 [node name="SettingsBackground" type="TextureRect" parent="." unique_id=1993807682]
