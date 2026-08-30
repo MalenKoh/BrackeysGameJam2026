@@ -13,12 +13,8 @@ var buttons: Array[TextureButton]
 @onready var settings: TextureButton = $Settings
 @onready var quit: TextureButton = $Quit
 
-const GAMEJAM_MENU = preload("uid://bbe7bbdh1tc3e")
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var music :AudioStreamPlayer2D = AudioHandler.create_audio(self, GAMEJAM_MENU, 10, 1, "Music")
-	music.play()
 	screen_width = get_viewport_rect().size.x
 	screen_height = get_viewport_rect().size.y
 	buttons.append(play)

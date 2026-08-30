@@ -77,6 +77,9 @@ func _physics_process(delta: float) -> void:
 		update_animation(false)
 		
 	move_and_slide()
+
+func force_dialogue(text : String) -> void:
+	PlayerGlobal.add_monologue(text)
 	
 func update_animation(moving : bool) -> void:
 	var next_animation : String = ""

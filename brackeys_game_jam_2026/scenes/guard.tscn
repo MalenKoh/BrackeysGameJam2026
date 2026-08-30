@@ -172,7 +172,10 @@ _data = {
 &"RESET": SubResource("Animation_gn8tx")
 }
 
-[node name="Guard" type="CharacterBody2D" unique_id=1156127642]
+[sub_resource type="CircleShape2D" id="CircleShape2D_k0dx2"]
+radius = 7.0
+
+[node name="Guard" type="CharacterBody2D" unique_id=1156127642 groups=["Fake"]]
 script = ExtResource("1_k0dx2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1631542192]
@@ -191,14 +194,17 @@ shape = SubResource("CircleShape2D_gn8tx")
 wait_time = 0.118
 
 [node name="HuntTimer" type="Timer" parent="." unique_id=1398816744]
-wait_time = 6.488
+wait_time = 4.0
+
+[node name="Respawn" type="Timer" parent="." unique_id=1182153687]
+wait_time = 4.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=501688307]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=553403160]
-polygon = PackedVector2Array(14, -27, 6, -30, 0, -31, -7, -30, -14, -27, 0, -1)
+polygon = PackedVector2Array(37, -42, 20, -43, 2, -46, -10, -45, -27, -41, 0, -1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=211817329]
 libraries/ = SubResource("AnimationLibrary_5dfqo")
@@ -210,8 +216,17 @@ script = ExtResource("3_k0dx2")
 wait_time = 0.4
 one_shot = true
 
+[node name="KillRadius" type="Area2D" parent="." unique_id=1989260415 groups=["Fake"]]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillRadius" unique_id=931883873]
+shape = SubResource("CircleShape2D_k0dx2")
+
 [connection signal="timeout" from="PathTimer" to="." method="_on_path_time_timeout"]
 [connection signal="timeout" from="HuntTimer" to="." method="_on_hunt_timer_timeout"]
+[connection signal="timeout" from="Respawn" to="." method="_on_respawn_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="timeout" from="EntitySFX/Step" to="EntitySFX" method="_on_step_timeout"]
+[connection signal="area_entered" from="KillRadius" to="." method="_on_kill_radius_area_entered"]

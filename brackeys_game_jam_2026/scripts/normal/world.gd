@@ -61,7 +61,6 @@ func _ready() -> void:
 	crt_effect = player_ui.crt_effect
 	
 	update_sanity.connect(add_sanity)
-	
 func add_sanity(sanity_to_add : int) -> void:
 	player_sanity += sanity_to_add
 	
@@ -74,7 +73,7 @@ func shift_to_clarity() -> void:
 	transition_fake_objects("ffffff00", 0.5, Tween.TRANS_CUBIC)
 	transition_crt(crt_clarity_values, 0.5, Tween.TRANS_CUBIC)
 	player.camera_2d.position_smoothing_speed = 10
-	
+	fake_stuff.enabled = false
 	tween.tween_property(canvas_modulate, "color", Color.from_string("a7a7a7", Color.WHITE), 0.5).set_trans(Tween.TRANS_CUBIC)
 	world_environment.environment.glow_bloom = 0.5
 	
@@ -123,6 +122,7 @@ func shift_to_insanity() -> void:
 	
 	await tween.finished
 	sane = false
+	fake_stuff.enabled = true
 	heart_beat.stop()
 	heart_beat.queue_free()
 	insanity_begins.emit()
