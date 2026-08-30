@@ -9,6 +9,7 @@ var inventory_items : Array[BaseItem]
 var current_key : int = 0
 var max_items : int = 2
 var monologue : Monologue
+var finished_intro: bool = false
 
 var player_stamina : float = 100 :
 	set(value):
