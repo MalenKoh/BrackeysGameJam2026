@@ -34,13 +34,8 @@ func on_clarity() -> void:
 	
 func on_insanity() -> void:
 	interactable = true
-
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	if !interactable: return
-	super(area)
 	
 func vanish() -> void:
 	if interactable:
 		AudioHandler.create_temporary_audio(PlayerGlobal.player, distortion.pick_random(), -3, randf_range(0.3, 0.8), "SFX")
-		world.add_sanity(-10)
 		queue_free()

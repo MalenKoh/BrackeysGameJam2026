@@ -1,8 +1,5 @@
 extends CharacterBody2D
 
-#Weeping Angel(light edition)
-#Stops when flashlight
-
 var WALKSPEED: int = 100
 var flashed: bool = false
 @export var player : Node2D

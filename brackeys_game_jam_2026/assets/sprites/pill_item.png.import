@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv8fbysmt084v"
-path="res://.godot/imported/button-Sheet.png-f073c0ccba021289e7046c32e4d5ba3a.ctex"
+uid="uid://nkpibvkxwmdc"
+path="res://.godot/imported/pill_item.png-5fee389226814c0e1068e5895919874d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/button-Sheet.png"
-dest_files=["res://.godot/imported/button-Sheet.png-f073c0ccba021289e7046c32e4d5ba3a.ctex"]
+source_file="res://assets/sprites/pill_item.png"
+dest_files=["res://.godot/imported/pill_item.png-5fee389226814c0e1068e5895919874d.ctex"]
 
 [params]
 

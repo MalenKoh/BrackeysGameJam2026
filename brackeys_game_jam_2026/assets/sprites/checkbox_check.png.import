@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv8fbysmt084v"
-path="res://.godot/imported/button-Sheet.png-f073c0ccba021289e7046c32e4d5ba3a.ctex"
+uid="uid://gowx7ofyovtw"
+path="res://.godot/imported/checkbox_check.png-974a69a9c13fefca6606a42c330f4088.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/button-Sheet.png"
-dest_files=["res://.godot/imported/button-Sheet.png-f073c0ccba021289e7046c32e4d5ba3a.ctex"]
+source_file="res://assets/sprites/checkbox_check.png"
+dest_files=["res://.godot/imported/checkbox_check.png-974a69a9c13fefca6606a42c330f4088.ctex"]
 
 [params]
 

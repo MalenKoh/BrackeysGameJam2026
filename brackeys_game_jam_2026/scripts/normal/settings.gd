@@ -6,6 +6,7 @@ var screen_width: int
 var screen_height: int
 var sliders: Array[HSlider]
 var labels: Array[RichTextLabel]
+var checkboxes: Array[Texture2D]
 
 @onready var settings: Settings = $"."
 @onready var settings_background: TextureRect = $SettingsBackground
@@ -17,8 +18,7 @@ var labels: Array[RichTextLabel]
 @onready var master_label: RichTextLabel = $"Master/RichTextLabel"
 @onready var background_label: RichTextLabel = $"Background Music/RichTextLabel"
 @onready var sfx_label: RichTextLabel = $"Sound Effects/RichTextLabel"
-@onready var crt_label: RichTextLabel = $"CRT Effects/RichTextLabel2"
-@onready var crt_checkbox: RichTextLabel = $"CRT Effects/RichTextLabel"
+@onready var crt_label: RichTextLabel = $"CRT Effects/RichTextLabel"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,7 +31,8 @@ func _ready() -> void:
 	labels.append(background_label)
 	labels.append(sfx_label)
 	labels.append(crt_label)
-	labels.append(crt_checkbox)
+	checkboxes.append(preload("res://assets/sprites/checkbox_check.png"))
+	checkboxes.append(preload("res://assets/sprites/checkbox.png"))
 	
 	settings.size.x = screen_width * 0.75
 	settings.size.y = screen_height * 2 / 3
@@ -82,7 +83,8 @@ func _on_sound_effects_drag_ended(value_changed: bool) -> void:
 func _on_crt_effects_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		SettingsGlobal.crt_effects = true
-		crt_checkbox.text = "✓"
+		crt_effects.texture_normal = checkboxes[0]
 	else:
 		SettingsGlobal.crt_effects = false
-		crt_checkbox.text = "X"
+		crt_effects.texture_normal = checkboxes[1]
+		

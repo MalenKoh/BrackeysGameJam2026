@@ -193,9 +193,9 @@ animation = &"Idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=257456648]
 energy = 0.5
-range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_p4spw")
+texture_scale = 2.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1184062858]
 collision_layer = 2
@@ -218,18 +218,4 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1891653893]
 shape = SubResource("CircleShape2D_7r4gi")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=394557467]
-zoom = Vector2(3, 3)
-position_smoothing_enabled = true
-position_smoothing_speed = 1.0
-drag_left_margin = 0.5
-drag_top_margin = 0.5
-drag_right_margin = 0.5
-drag_bottom_margin = 0.5
-
-[node name="StaminaWait" type="Timer" parent="." unique_id=437269188]
-wait_time = 2.0
-one_shot = true
-
 [connection signal="timeout" from="EntitySFX/Step" to="EntitySFX" method="_on_step_timeout"]
-[connection signal="timeout" from="StaminaWait" to="." method="_on_stamina_wait_timeout"]
