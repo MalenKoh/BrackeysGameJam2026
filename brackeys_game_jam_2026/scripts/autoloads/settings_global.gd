@@ -40,6 +40,8 @@ func _ready() -> void:
 	AudioServer.set_bus_volume_db(sfx_bus, sfx_volume)
 
 func _input(_event: InputEvent) -> void:
+	if get_tree().current_scene is Menu: return
+	
 	if Input.is_action_just_released("open_settings"):
 		if !settings_menu:
 			get_tree().paused = true

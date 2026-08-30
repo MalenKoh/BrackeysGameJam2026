@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://py10s0o7nd2t"]
 
 [ext_resource type="Script" uid="uid://chnjflbx5felm" path="res://scripts/normal/menu.gd" id="1_u81ku"]
+[ext_resource type="Texture2D" uid="uid://q2tf1x5ivlbd" path="res://assets/sprites/Sticky_Note.png" id="2_l5oxr"]
 [ext_resource type="Texture2D" uid="uid://oitbc3d6nxtd" path="res://assets/sprites/button/button_1.png" id="3_pujkf"]
 [ext_resource type="Texture2D" uid="uid://byyhfhnlcwp4d" path="res://assets/sprites/button/button_2.png" id="4_kjr1t"]
 [ext_resource type="Texture2D" uid="uid://8h8m6ui7ubmj" path="res://assets/sprites/button/button_3.png" id="5_wk2ro"]
@@ -89,6 +90,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u81ku")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=426839426]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 482.0
+offset_top = -378.99994
+offset_right = 778.5742
+offset_bottom = -82.21326
+grow_horizontal = 2
+grow_vertical = 0
+rotation = 0.1972222
+texture = ExtResource("2_l5oxr")
+expand_mode = 1
 
 [node name="Background" type="TextureRect" parent="." unique_id=526461582]
 layout_mode = 0

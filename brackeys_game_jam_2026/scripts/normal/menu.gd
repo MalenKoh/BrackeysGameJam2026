@@ -1,5 +1,5 @@
 extends Control
-
+class_name Menu
 const SETTINGS_MENU = preload("res://scenes/UI/settings.tscn")
 
 var settings_menu: Settings
