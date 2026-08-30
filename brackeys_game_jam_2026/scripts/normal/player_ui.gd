@@ -21,6 +21,9 @@ func _ready() -> void:
 		hotbar.append(slot)
 	
 	select_slot(0)
+	
+	if PlayerGlobal.finished_intro:
+		reveal_ui()
 
 func select_slot(key : int) -> void:
 	for slot : HotbarSlot in hotbar:

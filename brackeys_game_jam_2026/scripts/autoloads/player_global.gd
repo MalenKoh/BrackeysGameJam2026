@@ -33,6 +33,10 @@ func _ready() -> void:
 		inventory_items.append(null)
 		inventory_resources.append(null)
 
+func restart() -> void:
+	for i : int in range(max_items):
+		inventory_items.append(null)
+		inventory_resources.append(null)
 func enable_ui() -> void:
 	player_UI.reveal_ui()
 

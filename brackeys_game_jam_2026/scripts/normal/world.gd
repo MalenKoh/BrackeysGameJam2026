@@ -22,7 +22,7 @@ var player_sanity: int = 50:
 		if (player_sanity == 100):
 			shift_to_clarity()
 		elif !sane:
-			transition_crt(set_crt_effects(), 0.5, Tween.TRANS_ELASTIC)
+			transition_crt(set_crt_effects(), 0.1, Tween.TRANS_ELASTIC)
 
 var player : Player
 var player_ui : PlayerUI
