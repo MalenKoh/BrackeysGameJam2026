@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 	
 	if sprinting && PlayerGlobal.player_stamina > 0 && next_speed != Vector2.ZERO:
 		walk_time = 0.2
-		walk_volume = 4
+		walk_volume = 2
 		speed_magnitude = SPRINT_SPEED
 		stamina_regen = false
 		stamina_wait.stop()

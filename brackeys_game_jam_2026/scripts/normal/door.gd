@@ -20,6 +20,8 @@ class_name Door
 var open : bool = false
 var player_on_door : bool = false
 
+signal door_open()
+
 func _ready() -> void:
 	update_animation()
 	for light : PointLight2D in connected_lights:
@@ -51,6 +53,8 @@ func _input(_event: InputEvent) -> void:
 				
 			AudioHandler.create_temporary_audio(self, unlock_sound, -2, 2, "SFX")
 			animation_player.play(animation + "/door_open")
+			
+			door_open.emit()
 			
 			for light : PointLight2D in connected_lights:
 				light.enabled = true

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://py10s0o7nd2t"]
 
 [ext_resource type="Script" uid="uid://chnjflbx5felm" path="res://scripts/normal/menu.gd" id="1_u81ku"]
-[ext_resource type="Texture2D" uid="uid://d2v4pvvdhs04j" path="res://assets/sprites/jocelynsyrusmeschackgobarba.jpg" id="2_2tfbb"]
 [ext_resource type="Texture2D" uid="uid://oitbc3d6nxtd" path="res://assets/sprites/button/button_1.png" id="3_pujkf"]
 [ext_resource type="Texture2D" uid="uid://byyhfhnlcwp4d" path="res://assets/sprites/button/button_2.png" id="4_kjr1t"]
 [ext_resource type="Texture2D" uid="uid://8h8m6ui7ubmj" path="res://assets/sprites/button/button_3.png" id="5_wk2ro"]
@@ -21,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://slp16yiwd5gr" path="res://assets/sprites/button_hover/button_hover_5.png" id="19_7oqtn"]
 [ext_resource type="Texture2D" uid="uid://dr27owkhdaxyk" path="res://assets/sprites/button_hover/button_hover_6.png" id="20_1anaf"]
 [ext_resource type="Texture2D" uid="uid://dg7vadoj7tpy3" path="res://assets/sprites/title.png" id="21_kjr1t"]
+[ext_resource type="Shader" uid="uid://uwwul7yi4rrq" path="res://shaders/crt.gdshader" id="22_wk2ro"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_ibeei"]
 frames = 6
@@ -67,6 +67,18 @@ frame_4/duration = 0.1
 frame_5/texture = ExtResource("20_1anaf")
 frame_5/duration = 0.1
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a511q"]
+shader = ExtResource("22_wk2ro")
+shader_parameter/crt_curve = 0.0750000035625
+shader_parameter/scanline_count = 3.04400014459
+shader_parameter/scanline_size = 1.170000055575
+shader_parameter/scanline_intensity = 1.0
+shader_parameter/crt_brightness = 1.0
+shader_parameter/crt_ghost = 1.5000000712500001
+shader_parameter/crt_white_noise = 0.250000011875
+shader_parameter/crt_grid = 0.0
+shader_parameter/vignette_multiplier = 0.2000000095
+
 [node name="Menu" type="Control" unique_id=413426761]
 layout_mode = 3
 anchors_preset = 15
@@ -80,7 +92,6 @@ script = ExtResource("1_u81ku")
 layout_mode = 0
 offset_right = 800.0
 offset_bottom = 600.0
-texture = ExtResource("2_2tfbb")
 expand_mode = 1
 
 [node name="Play" type="TextureButton" parent="." unique_id=143697903]
@@ -160,6 +171,16 @@ offset_right = 750.0
 offset_bottom = 225.0
 texture = ExtResource("21_kjr1t")
 expand_mode = 1
+
+[node name="CRTEffect" type="ColorRect" parent="." unique_id=562277795]
+material = SubResource("ShaderMaterial_a511q")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]

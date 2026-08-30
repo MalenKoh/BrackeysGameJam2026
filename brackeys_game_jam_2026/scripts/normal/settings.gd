@@ -18,7 +18,6 @@ var checkboxes: Array[Texture2D]
 @onready var master_label: RichTextLabel = $"Master/RichTextLabel"
 @onready var background_label: RichTextLabel = $"Background Music/RichTextLabel"
 @onready var sfx_label: RichTextLabel = $"Sound Effects/RichTextLabel"
-@onready var crt_label: RichTextLabel = $"CRT Effects/RichTextLabel"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,7 +29,6 @@ func _ready() -> void:
 	labels.append(master_label)
 	labels.append(background_label)
 	labels.append(sfx_label)
-	labels.append(crt_label)
 	checkboxes.append(preload("res://assets/sprites/checkbox_check.png"))
 	checkboxes.append(preload("res://assets/sprites/checkbox.png"))
 	
@@ -61,7 +59,8 @@ func _ready() -> void:
 	sound_effects.value = SettingsGlobal.sfx_volume
 	
 func _on_texture_button_pressed() -> void:
-	get_parent().remove_child(self)
+	get_tree().paused = false
+	queue_free()
 
 func _on_master_drag_ended(value_changed: bool) -> void:
 	if value_changed:
