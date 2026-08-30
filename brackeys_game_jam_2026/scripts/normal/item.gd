@@ -7,10 +7,14 @@ class_name BaseItem
 	set(value):
 		item_active = value
 		visible = value
+		on_item_active(item_active)
 
 func _physics_process(_delta: float) -> void:
 	if (item_active && Input.is_action_just_pressed("use_item")):
 		_on_item_used()
 
 func _on_item_used() -> void:
+	pass
+
+func on_item_active(_item_active : bool) -> void:
 	pass

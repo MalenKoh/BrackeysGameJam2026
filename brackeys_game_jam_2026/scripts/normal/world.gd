@@ -149,3 +149,7 @@ func set_crt_effects() -> Dictionary[String, float]:
 		"vignette_multiplier" = 2.0 / 3.0 - float(player_sanity) / 150.0,
 	}
 	return crt_values
+
+
+func _on_door_23_door_open() -> void:
+	pass # Replace with function body.

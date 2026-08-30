@@ -1,10 +1,13 @@
 extends CharacterBody2D
+class_name WeepingAngel
 
 #Weeping Angel(light edition)
 #Stops when flashlight
 
-var WALKSPEED: int = 100
+const WALKSPEED: int = 160
 var flashed: bool = false
+var clarity : bool = false
+
 @export var player : Node2D
 @onready var navAgent := $NavigationAgent2D as NavigationAgent2D
 @onready var sprite := $AnimatedSprite2D as AnimatedSprite2D
@@ -12,14 +15,32 @@ var flashed: bool = false
 @onready var entity_sfx = $EntitySFX 
 @onready var animation_player = $AnimationPlayer as AnimationPlayer
 
-var globalp = preload("res://scripts/autoloads/player_global.gd")
+var world : World
+
+const WEEPYNURSE = preload("uid://deyls6loi5ec")
+
+signal on_touched_player()
 
 func _ready() -> void:
+	world = get_tree().current_scene
 	player = PlayerGlobal.player
 	timepath.start() #starts the timer
-
+	
+	world.clarity_begins.connect(on_clarity)
+	world.insanity_begins.connect(on_insanity)
+	
+	clarity = world.sane
+	visible = !world.sane
+func on_clarity() -> void:
+	clarity = true
+	
+func on_insanity() -> void:
+	clarity = false
+	
 func _physics_process(_delta: float) -> void:
-	var walk_time : float = 0.05
+	if clarity: return
+	
+	var walk_time : float = 0.01
 	var walk_volume : float = -6
 	var next_velocity : Vector2 = Vector2.ZERO
 	var dir = to_local(navAgent.get_next_path_position()).normalized()
@@ -64,7 +85,6 @@ func makePath() -> void:
 	#this only works if you defined what is "walkable" using navigation layers
 	navAgent.target_position = Vector2(xPos,player.global_position.y) #WHATTT
 
-
 func _on_path_time_timeout() -> void:
 	if(player!=null): 
 		makePath()
@@ -76,7 +96,13 @@ func on_flashlight_enter(area: Area2D) -> void:
 	#detecting layer 4 since only flashlight
 	flashed = true
 
-
 func on_flashlight_exit(area: Area2D) -> void:
 	#detecting layer 4 since only flashlight
 	flashed = false
+
+func _on_kill_radius_area_entered(_area: Area2D) -> void:
+	if !clarity:
+		on_touched_player.emit()
+		AudioHandler.create_temporary_audio(PlayerGlobal.player, WEEPYNURSE, 0, randf_range(2,3), "SFX")
+		get_tree().current_scene.add_sanity(-35)
+		queue_free()

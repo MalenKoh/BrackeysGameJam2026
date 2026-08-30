@@ -14,3 +14,4 @@ func _on_item_used() -> void:
 	
 	point_light_2d.enabled = !point_light_2d.enabled
 	point_light_2d_2.enabled = !point_light_2d_2.enabled
+	cpoly2d.disabled = !cpoly2d.disabled

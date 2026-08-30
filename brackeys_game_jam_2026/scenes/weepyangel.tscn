@@ -176,7 +176,10 @@ _data = {
 &"Walking": SubResource("Animation_sq1fa")
 }
 
-[node name="weepyangel" type="CharacterBody2D" unique_id=1123629555]
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 7.0
+
+[node name="weepyangel" type="CharacterBody2D" unique_id=1123629555 groups=["Fake"]]
 script = ExtResource("1_70sve")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2048802227]
@@ -211,7 +214,15 @@ one_shot = true
 libraries/ = SubResource("AnimationLibrary_mo8n0")
 speed_scale = 2.5
 
+[node name="KillRadius" type="Area2D" parent="." unique_id=202642479]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillRadius" unique_id=34213842]
+shape = SubResource("CircleShape2D_g4v7s")
+
 [connection signal="timeout" from="PathTimer" to="." method="_on_path_time_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="on_flashlight_enter"]
 [connection signal="area_exited" from="Area2D" to="." method="on_flashlight_exit"]
 [connection signal="timeout" from="EntitySFX/Step" to="EntitySFX" method="_on_step_timeout"]
+[connection signal="area_entered" from="KillRadius" to="." method="_on_kill_radius_area_entered"]
