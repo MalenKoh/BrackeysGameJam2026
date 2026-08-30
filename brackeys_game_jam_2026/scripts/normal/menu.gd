@@ -7,7 +7,8 @@ var screen_width: int
 var screen_height: int
 var buttons: Array[TextureButton]
 
-@onready var texture_rect: TextureRect = $TextureRect
+@onready var background: TextureRect = $Background
+@onready var title: TextureRect = $Title
 @onready var play: TextureButton = $Play
 @onready var settings: TextureButton = $Settings
 @onready var quit: TextureButton = $Quit
@@ -21,9 +22,12 @@ func _ready() -> void:
 	buttons.append(settings)
 	buttons.append(quit)
 	
-	texture_rect.size.x = screen_width
-	texture_rect.size.y = screen_height
-	
+	background.size.x = screen_width
+	background.size.y = screen_height
+	title.size.x = screen_width * 7 / 8
+	title.size.y = screen_height / 4
+	title.position.x = screen_width / 18
+	title.position.y = screen_height / 8
 	for i in 3:
 		buttons[i].size.x = screen_width / 2
 		buttons[i].size.y = screen_height / 8
