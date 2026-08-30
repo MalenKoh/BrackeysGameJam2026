@@ -1,106 +1,186 @@
 [gd_scene format=3 uid="uid://cxwhxg5irg2xx"]
 
-[ext_resource type="Texture2D" uid="uid://dn0rvr26ixg7" path="res://assets/sprites/top-down_guy-Sheet.png" id="1_ci2qi"]
 [ext_resource type="Script" uid="uid://c148dqi2r40m7" path="res://scripts/normal/guard.gd" id="1_k0dx2"]
-[ext_resource type="Texture2D" uid="uid://cp46g674yn7qa" path="res://assets/sprites/top-down_guy_flashlight-Sheet.png" id="2_k0dx2"]
+[ext_resource type="Texture2D" uid="uid://kjaxagbb7o45" path="res://assets/sprites/guard-Sheet.png" id="2_ci2qi"]
+[ext_resource type="Script" uid="uid://cthaghggkd6tn" path="res://scripts/normal/entitySFX.gd" id="3_k0dx2"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
-atlas = ExtResource("1_ci2qi")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_po81t"]
-atlas = ExtResource("2_k0dx2")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
-atlas = ExtResource("1_ci2qi")
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0dx2"]
+atlas = ExtResource("2_ci2qi")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
-atlas = ExtResource("1_ci2qi")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygo2t"]
+atlas = ExtResource("2_ci2qi")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
-atlas = ExtResource("1_ci2qi")
+[sub_resource type="AtlasTexture" id="AtlasTexture_gn8tx"]
+atlas = ExtResource("2_ci2qi")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vj8d1"]
-atlas = ExtResource("2_k0dx2")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aa2pa"]
-atlas = ExtResource("2_k0dx2")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4jihm"]
-atlas = ExtResource("2_k0dx2")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dfqo"]
+atlas = ExtResource("2_ci2qi")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ygo2t"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qhqgy")
+"texture": SubResource("AtlasTexture_k0dx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygo2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gn8tx")
 }],
 "loop": 1,
-"name": &"Idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_po81t")
-}],
-"loop": 1,
-"name": &"Idle_Flashlight",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qhqgy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dqkch")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qlg0r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tuyoq")
-}],
-"loop": 1,
-"name": &"Walking",
+"name": &"Hunt",
 "speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_po81t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vj8d1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aa2pa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4jihm")
+"texture": SubResource("AtlasTexture_5dfqo")
 }],
 "loop": 1,
-"name": &"Walking_Flashlight",
-"speed": 9.0
+"name": &"Patrol",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gn8tx"]
 radius = 11.7
 
+[sub_resource type="Animation" id="Animation_k0dx2"]
+resource_name = "Hunt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_ygo2t")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Hunt"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_ygo2t"]
+resource_name = "Patrol"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_ygo2t")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Patrol"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_gn8tx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_ygo2t")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Hunt"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5dfqo"]
+_data = {
+&"Hunt": SubResource("Animation_k0dx2"),
+&"Patrol": SubResource("Animation_ygo2t"),
+&"RESET": SubResource("Animation_gn8tx")
+}
+
 [node name="Guard" type="CharacterBody2D" unique_id=1156127642]
 script = ExtResource("1_k0dx2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1631542192]
-modulate = Color(3.4265816, 3.4265816, 3.4265816, 1)
 z_index = 1
+position = Vector2(0, -4)
 scale = Vector2(0.986, 0.986)
 sprite_frames = SubResource("SpriteFrames_ygo2t")
-animation = &"Idle"
+animation = &"Hunt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=850267053]
 shape = SubResource("CircleShape2D_gn8tx")
@@ -114,13 +194,24 @@ wait_time = 0.118
 wait_time = 6.488
 
 [node name="Area2D" type="Area2D" parent="." unique_id=501688307]
-collision_layer = 6
-collision_mask = 16
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=553403160]
 polygon = PackedVector2Array(14, -27, 6, -30, 0, -31, -7, -30, -14, -27, 0, -1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=211817329]
+libraries/ = SubResource("AnimationLibrary_5dfqo")
+
+[node name="EntitySFX" type="Node2D" parent="." unique_id=264971598]
+script = ExtResource("3_k0dx2")
+
+[node name="Step" type="Timer" parent="EntitySFX" unique_id=1518385360]
+wait_time = 0.4
+one_shot = true
 
 [connection signal="timeout" from="PathTimer" to="." method="_on_path_time_timeout"]
 [connection signal="timeout" from="HuntTimer" to="." method="_on_hunt_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="EntitySFX/Step" to="EntitySFX" method="_on_step_timeout"]

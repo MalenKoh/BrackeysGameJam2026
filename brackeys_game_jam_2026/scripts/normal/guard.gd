@@ -18,6 +18,8 @@ var player:Node2D
 @onready var area2d := $Area2D as Area2D
 @onready var timepath := $PathTimer as Timer
 @onready var huntpath := $HuntTimer as Timer
+@onready var entity_sfx = $EntitySFX 
+@onready var animation_player = $AnimationPlayer as AnimationPlayer
 
 func _ready() -> void:
 	player=PlayerGlobal.player
@@ -27,26 +29,52 @@ func _physics_process(_delta: float) -> void:
 	if !isHunting: 
 		target=patrolPath #initally Patrol Mode
 		walkspeed=80
+		update_animation(false)
 	else: 
 		target=player
 		walkspeed=100
+		update_animation(true)
 	
 	if(target==null): target=player
 	
 	#the actual pathfinding process
+	var next_velocity : Vector2 = Vector2.ZERO
+	var walk_time : float = 0.3
+	var walk_volume : float = -6.5
 	var dir = to_local(navAgent.get_next_path_position()).normalized()
 	var truepos = Vector2(target.position.x - self.position.x,target.position.y - self.position.y)
-	var wah = sqrt((truepos.x*truepos.x) + (truepos.y*truepos.y)) #find the distance between the target and measures it
+	var wah = sqrt((truepos.x*truepos.x) + (truepos.y*truepos.y)) #hypo?
 	var ang = truepos.angle()
 
 	if wah<12: #if the target is really close
 		#walking to target
-		velocity=Vector2(0,0)
+		next_velocity=Vector2(0,0)
 	else:
-		velocity= dir*walkspeed
+		next_velocity= dir*walkspeed
 		sprite.rotation = ang + PI/2
 		area2d.rotation = ang + PI/2
+	
+	velocity = next_velocity
+	
+	if next_velocity != Vector2.ZERO:
+		entity_sfx.play_footstep(walk_time, walk_volume)
+
+	
 	move_and_slide()
+
+func update_animation(hunting:bool) -> void:
+	var next_animation : String = ""
+		
+	if !hunting:
+		next_animation = "Patrol"
+	else:
+		next_animation = "Hunt"
+	
+	if animation_player.current_animation == next_animation: return
+	
+	var animation_speed : float = 1.0
+
+	animation_player.play(next_animation, 0, animation_speed)
 
 func makePath() -> void:
 	var xPos = target.global_position.x
@@ -68,7 +96,9 @@ func _on_hunt_timer_timeout() -> void:
 		isHunting=false
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
+	print(str(target))
 	isHunting=true
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
+	print(str(target))
 	huntpath.start() #starts a timer to check again

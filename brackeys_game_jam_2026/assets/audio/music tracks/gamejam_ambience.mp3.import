@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ix5qsu3knbtx"
+path="res://.godot/imported/gamejam_ambience.mp3-d44f1926b0a5bebf465aeca0e62eab36.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music tracks/gamejam_ambience.mp3"
+dest_files=["res://.godot/imported/gamejam_ambience.mp3-d44f1926b0a5bebf465aeca0e62eab36.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

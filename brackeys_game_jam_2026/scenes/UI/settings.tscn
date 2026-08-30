@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://d0cpmynka00do"]
 
 [ext_resource type="Script" uid="uid://fd7fdfv104pq" path="res://scripts/normal/settings.gd" id="1_t8pki"]
-[ext_resource type="Texture2D" uid="uid://d2v4pvvdhs04j" path="res://assets/sprites/jocelynsyrusmeschackgobarba.jpg" id="2_32w1k"]
+[ext_resource type="Texture2D" uid="uid://b3q2x6rs8k0yh" path="res://assets/sprites/settings_background.png" id="2_ibeei"]
+[ext_resource type="Texture2D" uid="uid://d1m5xjaqdnaob" path="res://assets/sprites/back_button.png" id="3_25bb8"]
+[ext_resource type="Texture2D" uid="uid://q5e4ik4q74av" path="res://assets/sprites/back_button_pressed.png" id="4_hxa2i"]
+[ext_resource type="Texture2D" uid="uid://cx4m34eq7yfuy" path="res://assets/sprites/back_button_hover.png" id="5_6hnnl"]
+[ext_resource type="Texture2D" uid="uid://gowx7ofyovtw" path="res://assets/sprites/checkbox_check.png" id="6_pa0cq"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_stk03"]
 
@@ -20,7 +24,7 @@ script = ExtResource("1_t8pki")
 layout_mode = 0
 offset_right = 1200.0
 offset_bottom = 800.0
-texture = ExtResource("2_32w1k")
+texture = ExtResource("2_ibeei")
 expand_mode = 1
 
 [node name="ExitButton" type="TextureButton" parent="." unique_id=1778988761]
@@ -28,9 +32,9 @@ layout_mode = 0
 offset_left = 1100.0
 offset_right = 1200.0
 offset_bottom = 100.0
-texture_normal = ExtResource("2_32w1k")
-texture_pressed = ExtResource("2_32w1k")
-texture_hover = ExtResource("2_32w1k")
+texture_normal = ExtResource("3_25bb8")
+texture_pressed = ExtResource("4_hxa2i")
+texture_hover = ExtResource("5_6hnnl")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -117,23 +121,9 @@ offset_right = 600.0
 offset_bottom = 560.0
 toggle_mode = true
 button_pressed = true
-texture_normal = ExtResource("2_32w1k")
-texture_pressed = ExtResource("2_32w1k")
-texture_hover = ExtResource("2_32w1k")
+texture_normal = ExtResource("6_pa0cq")
 ignore_texture_size = true
 stretch_mode = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CRT Effects" unique_id=1603415400]
-layout_mode = 0
-offset_right = 75.0
-offset_bottom = 75.0
-mouse_filter = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 80
-text = "✓"
-scroll_active = false
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="CRT Effects" unique_id=1929497937]
 layout_mode = 0
