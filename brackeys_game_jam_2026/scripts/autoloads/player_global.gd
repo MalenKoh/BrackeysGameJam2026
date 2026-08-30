@@ -61,7 +61,7 @@ func add_to_inventory(item: DroppedItem) -> void:
 				break
 	
 	if key == -1:
-		add_monologue("I have too many items...")
+		add_monologue("I have too many items... (Q to drop)")
 		return
 	
 	AudioHandler.create_temporary_audio(player, PLAYER_EQUIP, 0, 2, "SFX")

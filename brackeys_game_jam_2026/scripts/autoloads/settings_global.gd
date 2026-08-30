@@ -27,8 +27,8 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
 	master_volume = 0
-	background_volume = 15
-	sfx_volume = 15
+	background_volume = 0
+	sfx_volume = 0
 	crt_effects = true
 	
 	master_bus = AudioServer.get_bus_index("Master")

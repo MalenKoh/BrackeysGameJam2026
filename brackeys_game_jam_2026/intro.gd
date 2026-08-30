@@ -4,10 +4,14 @@ extends CanvasLayer
 
 func _ready() -> void:
 	if PlayerGlobal.finished_intro:
+		PlayerGlobal.add_monologue(".....")
 		queue_free()
+		return
+	get_tree().paused = true
 	animation_player.play("Intro_Start",-1, 2)
 	await animation_player.animation_finished
 	PlayerGlobal.intro_finished.emit()
 	PlayerGlobal.finished_intro = true
+	get_tree().paused = false
 	
 	queue_free()

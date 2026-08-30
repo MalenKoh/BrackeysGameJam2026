@@ -66,7 +66,7 @@ func add_sanity(sanity_to_add : int) -> void:
 	
 func _process(_delta: float) -> void:
 	transition_crt(set_crt_effects(), 2, Tween.TRANS_BOUNCE)
-	print(player_sanity)
+	
 	if player_sanity == 0:
 		get_tree().reload_current_scene()
 
