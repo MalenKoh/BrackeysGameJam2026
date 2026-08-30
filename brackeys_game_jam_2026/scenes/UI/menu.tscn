@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://slp16yiwd5gr" path="res://assets/sprites/button_hover/button_hover_5.png" id="19_7oqtn"]
 [ext_resource type="Texture2D" uid="uid://dr27owkhdaxyk" path="res://assets/sprites/button_hover/button_hover_6.png" id="20_1anaf"]
 [ext_resource type="Texture2D" uid="uid://dg7vadoj7tpy3" path="res://assets/sprites/title.png" id="21_kjr1t"]
+[ext_resource type="Script" uid="uid://chriu00yd440g" path="res://scripts/normal/crt_effect.gd" id="22_a511q"]
 [ext_resource type="Shader" uid="uid://uwwul7yi4rrq" path="res://shaders/crt.gdshader" id="22_wk2ro"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_ibeei"]
@@ -74,7 +75,7 @@ shader_parameter/scanline_count = 3.04400014459
 shader_parameter/scanline_size = 1.170000055575
 shader_parameter/scanline_intensity = 1.0
 shader_parameter/crt_brightness = 1.0
-shader_parameter/crt_ghost = 1.5000000712500001
+shader_parameter/crt_ghost = 1.50000007125
 shader_parameter/crt_white_noise = 0.250000011875
 shader_parameter/crt_grid = 0.0
 shader_parameter/vignette_multiplier = 0.2000000095
@@ -181,6 +182,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("22_a511q")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]

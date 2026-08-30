@@ -54,7 +54,6 @@ void fragment() {
 	// Vignette
 	vec3 vignette = vec3(length(pow(abs(SCREEN_UV * 2.0 - 1.0), vec2(4.0)) / 3.0));
 	colour -= vignette * vignette_multiplier;
-	
 	COLOR = vec4(colour, 1.0);
 }
 
