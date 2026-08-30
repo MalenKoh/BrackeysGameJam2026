@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="BrackeysGameJam2026"
+config/name="It Was Them"
 run/main_scene="uid://py10s0o7nd2t"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="uid://dqsm5547d7y0v"
+config/icon="uid://b62lo482o2ohq"
 
 [audio]
 

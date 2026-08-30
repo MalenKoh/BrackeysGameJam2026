@@ -13,9 +13,12 @@ var buttons: Array[TextureButton]
 @onready var settings: TextureButton = $Settings
 @onready var quit: TextureButton = $Quit
 
+const GAMEJAM_MENU = preload("uid://bbe7bbdh1tc3e")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	settings_menu = SETTINGS_MENU.instantiate()
+	var music :AudioStreamPlayer2D = AudioHandler.create_audio(self, GAMEJAM_MENU, 10, 1, "Music")
+	music.play()
 	screen_width = get_viewport_rect().size.x
 	screen_height = get_viewport_rect().size.y
 	buttons.append(play)
@@ -38,6 +41,7 @@ func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/world.tscn")
 
 func _on_settings_pressed() -> void:
+	settings_menu = SETTINGS_MENU.instantiate()
 	add_child(settings_menu)
 
 func _on_quit_pressed() -> void:
