@@ -44,6 +44,7 @@ func _ready() -> void:
 	exit_button.size.y = screen_height / 12
 	exit_button.position.x = settings.size.x - exit_button.size.x
 	exit_button.position.y = 0
+	
 	for i in 3:
 		sliders[i].size.x = screen_width / 3.2
 		sliders[i].size.y = screen_height / 24
@@ -56,9 +57,10 @@ func _ready() -> void:
 	#for i in 5:
 		#labels[i].add_theme_font_size_override("font_size", screen_width * 3 / 100)
 	
-	master.value = 100
-	background_music.value = 100
-	sound_effects.value = 100
+	master.value = AudioServer.get_bus_volume_db(0)
+	background_music.value = AudioServer.get_bus_volume_db(3)
+	sound_effects.value = AudioServer.get_bus_volume_db(1)
+	
 	SettingsGlobal.master_volume = master.value
 	SettingsGlobal.background_volume = background_music.value
 	SettingsGlobal.sfx_volume = sound_effects.value

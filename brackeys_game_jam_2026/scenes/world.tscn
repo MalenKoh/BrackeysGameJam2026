@@ -655,6 +655,7 @@ one_shot = true
 position = Vector2(107, -64)
 resource = ExtResource("7_4mrxx")
 
+<<<<<<< HEAD
 [node name="FakeItem3" parent="." unique_id=1990199408 instance=ExtResource("10_w7kh3")]
 position = Vector2(273, -55)
 resource = ExtResource("7_4mrxx")
@@ -662,6 +663,11 @@ resource = ExtResource("7_4mrxx")
 [node name="FakeItem2" parent="." unique_id=721120958 instance=ExtResource("10_w7kh3")]
 position = Vector2(368, -129)
 resource = ExtResource("7_4mrxx")
+=======
+[node name="Intro" parent="ShadowAffected" unique_id=728900759 instance=ExtResource("2_4mrxx")]
+
+[node name="Player_UI" parent="ShadowAffected" unique_id=64824392 instance=ExtResource("1_71j4m")]
+>>>>>>> main
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1134181056]
 navigation_polygon = SubResource("NavigationPolygon_e3hyu")
@@ -671,6 +677,616 @@ position = Vector2(-15, -108)
 energy = 0.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_w7kh3")
+<<<<<<< HEAD
 texture_scale = 8.3
+=======
+texture_scale = 5.0
+
+[node name="Light2" type="PointLight2D" parent="ShadowAffected/Lights" unique_id=1071292671]
+position = Vector2(-414, 291)
+energy = 0.5
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_w7kh3")
+texture_scale = 5.0
+
+[node name="Light3" type="PointLight2D" parent="ShadowAffected/Lights" unique_id=1731790278]
+position = Vector2(-516, 91)
+energy = 0.5
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_w7kh3")
+texture_scale = 5.0
+
+[node name="Light4" type="PointLight2D" parent="ShadowAffected/Lights" unique_id=1833767407]
+position = Vector2(-303, 91)
+energy = 0.5
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_w7kh3")
+texture_scale = 5.0
+
+[node name="Light5" type="PointLight2D" parent="ShadowAffected/Lights" unique_id=219566116]
+position = Vector2(-49, -72)
+energy = 0.5
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_w7kh3")
+texture_scale = 4.0
+
+[node name="Light10" type="PointLight2D" parent="ShadowAffected/Lights" unique_id=699248626]
+position = Vector2(208, 80)
+energy = 0.5
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_w7kh3")
+texture_scale = 4.0
+
+[node name="Light11" type="PointLight2D" parent="ShadowAffected/Lights" unique_id=1701766510]
+position = Vector2(528, -27)
+energy = 0.3
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_w7kh3")
+texture_scale = 4.0
+
+[node name="Light12" type="PointLight2D" parent="ShadowAffected/Lights" unique_id=381040904]
+position = Vector2(1403, -338)
+energy = 0.1
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_w7kh3")
+texture_scale = 3.0
+
+[node name="Light13" type="PointLight2D" parent="ShadowAffected/Lights" unique_id=437980138]
+position = Vector2(1600, -510)
+energy = 0.1
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_w7kh3")
+texture_scale = 3.0
+
+[node name="Light14" type="PointLight2D" parent="ShadowAffected/Lights" unique_id=982882708]
+position = Vector2(1803, -622)
+energy = 0.1
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_w7kh3")
+texture_scale = 3.0
+
+[node name="Light15" type="PointLight2D" parent="ShadowAffected/Lights" unique_id=1465195330]
+position = Vector2(1796, -330)
+energy = 0.1
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_w7kh3")
+texture_scale = 3.0
+
+[node name="Light18" type="PointLight2D" parent="ShadowAffected/Lights" unique_id=2141428216]
+position = Vector2(1575, -330)
+energy = 0.1
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_w7kh3")
+texture_scale = 3.0
+
+[node name="Light16" type="PointLight2D" parent="ShadowAffected/Lights" unique_id=860747413]
+position = Vector2(1567, -81)
+energy = 0.1
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_w7kh3")
+texture_scale = 3.0
+
+[node name="Light17" type="PointLight2D" parent="ShadowAffected/Lights" unique_id=1753380158]
+position = Vector2(1815, -85)
+energy = 0.1
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_w7kh3")
+texture_scale = 3.0
+
+[node name="Light6" type="PointLight2D" parent="ShadowAffected/Lights" unique_id=1222097435]
+position = Vector2(209, 240)
+energy = 0.5
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_w7kh3")
+texture_scale = 4.0
+
+[node name="Light7" type="PointLight2D" parent="ShadowAffected/Lights" unique_id=397461333]
+position = Vector2(369, -271)
+energy = 0.5
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_w7kh3")
+texture_scale = 4.0
+
+[node name="Light8" type="PointLight2D" parent="ShadowAffected/Lights" unique_id=1503797832]
+position = Vector2(522, -237)
+energy = 0.3
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_w7kh3")
+texture_scale = 4.0
+
+[node name="Light9" type="PointLight2D" parent="ShadowAffected/Lights" unique_id=621136761]
+position = Vector2(366, -505)
+energy = 0.5
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_w7kh3")
+texture_scale = 4.0
+
+[node name="Items" type="Node" parent="ShadowAffected" unique_id=1623207348]
+
+[node name="DroppedItem" parent="ShadowAffected/Items" unique_id=1308810569 instance=ExtResource("1_4wyf3")]
+position = Vector2(-449, 49)
+resource = SubResource("Resource_luhhm")
+
+[node name="DroppedItem2" parent="ShadowAffected/Items" unique_id=1097618643 instance=ExtResource("1_4wyf3")]
+position = Vector2(-269, 270)
+resource = ExtResource("3_7r4gi")
+
+[node name="DroppedItem3" parent="ShadowAffected/Items" unique_id=1602947614 instance=ExtResource("1_4wyf3")]
+position = Vector2(-527, 177)
+resource = ExtResource("3_7r4gi")
+
+[node name="DroppedItem4" parent="ShadowAffected/Items" unique_id=427338889 instance=ExtResource("1_4wyf3")]
+position = Vector2(207, -54)
+resource = ExtResource("21_oo54l")
+
+[node name="DroppedItem5" parent="ShadowAffected/Items" unique_id=517460227 instance=ExtResource("1_4wyf3")]
+position = Vector2(258, -303)
+resource = SubResource("Resource_f17e3")
+
+[node name="DroppedItem6" parent="ShadowAffected/Items" unique_id=620455091 instance=ExtResource("1_4wyf3")]
+position = Vector2(151, 223)
+resource = SubResource("Resource_navra")
+
+[node name="DroppedItem7" parent="ShadowAffected/Items" unique_id=573289880 instance=ExtResource("1_4wyf3")]
+position = Vector2(17, -35)
+resource = ExtResource("3_7r4gi")
+
+[node name="DroppedItem8" parent="ShadowAffected/Items" unique_id=966576149 instance=ExtResource("1_4wyf3")]
+position = Vector2(465, -178)
+resource = SubResource("Resource_fh13f")
+
+[node name="DroppedItem9" parent="ShadowAffected/Items" unique_id=1785155652 instance=ExtResource("1_4wyf3")]
+position = Vector2(1349, -753)
+resource = ExtResource("3_7r4gi")
+
+[node name="DroppedItem10" parent="ShadowAffected/Items" unique_id=103159345 instance=ExtResource("1_4wyf3")]
+position = Vector2(1360, -817)
+resource = ExtResource("3_7r4gi")
+
+[node name="DroppedItem11" parent="ShadowAffected/Items" unique_id=2055417805 instance=ExtResource("1_4wyf3")]
+position = Vector2(1381, -818)
+resource = ExtResource("3_7r4gi")
+
+[node name="DroppedItem12" parent="ShadowAffected/Items" unique_id=1153849263 instance=ExtResource("1_4wyf3")]
+position = Vector2(1404, -758)
+resource = ExtResource("3_7r4gi")
+
+[node name="DroppedItem13" parent="ShadowAffected/Items" unique_id=1988345620 instance=ExtResource("1_4wyf3")]
+position = Vector2(1422, -758)
+resource = ExtResource("3_7r4gi")
+
+[node name="DroppedItem14" parent="ShadowAffected/Items" unique_id=86446487 instance=ExtResource("1_4wyf3")]
+position = Vector2(1442, -758)
+resource = ExtResource("3_7r4gi")
+
+[node name="DroppedItem15" parent="ShadowAffected/Items" unique_id=368855382 instance=ExtResource("1_4wyf3")]
+position = Vector2(1338, -817)
+resource = ExtResource("3_7r4gi")
+
+[node name="DroppedItem16" parent="ShadowAffected/Items" unique_id=1750601094 instance=ExtResource("1_4wyf3")]
+position = Vector2(1440, -820)
+resource = ExtResource("3_7r4gi")
+
+[node name="DroppedItem17" parent="ShadowAffected/Items" unique_id=1462480838 instance=ExtResource("1_4wyf3")]
+position = Vector2(1413, -824)
+resource = ExtResource("3_7r4gi")
+
+[node name="DroppedItem18" parent="ShadowAffected/Items" unique_id=558323331 instance=ExtResource("1_4wyf3")]
+position = Vector2(1341, -876)
+resource = ExtResource("3_7r4gi")
+
+[node name="DroppedItem19" parent="ShadowAffected/Items" unique_id=856833332 instance=ExtResource("1_4wyf3")]
+position = Vector2(1373, -871)
+resource = ExtResource("3_7r4gi")
+
+[node name="DroppedItem20" parent="ShadowAffected/Items" unique_id=29444132 instance=ExtResource("1_4wyf3")]
+position = Vector2(1439, -881)
+resource = ExtResource("3_7r4gi")
+
+[node name="DroppedItem21" parent="ShadowAffected/Items" unique_id=1713762447 instance=ExtResource("1_4wyf3")]
+position = Vector2(1967, -140)
+resource = SubResource("Resource_x2olw")
+
+[node name="DroppedItem22" parent="ShadowAffected/Items" unique_id=1772737434 instance=ExtResource("1_4wyf3")]
+position = Vector2(1714, -433)
+resource = SubResource("Resource_rup4s")
+
+[node name="FakeItem" parent="ShadowAffected/Items" unique_id=578207141 instance=ExtResource("21_7iits")]
+position = Vector2(16, -64)
+resource = SubResource("Resource_4kbfs")
+
+[node name="FakeItem2" parent="ShadowAffected/Items" unique_id=1846221359 instance=ExtResource("21_7iits")]
+position = Vector2(465, -303)
+resource = SubResource("Resource_0nbtd")
+
+[node name="FakeItem3" parent="ShadowAffected/Items" unique_id=1384654422 instance=ExtResource("21_7iits")]
+position = Vector2(593, -229)
+resource = SubResource("Resource_0nbtd")
+
+[node name="FakeItem4" parent="ShadowAffected/Items" unique_id=1949150223 instance=ExtResource("21_7iits")]
+position = Vector2(516, -81)
+resource = SubResource("Resource_0nbtd")
+
+[node name="FakeItem5" parent="ShadowAffected/Items" unique_id=914161709 instance=ExtResource("21_7iits")]
+position = Vector2(594, -11)
+resource = SubResource("Resource_0nbtd")
+
+[node name="FakeItem6" parent="ShadowAffected/Items" unique_id=835123016 instance=ExtResource("21_7iits")]
+position = Vector2(1297, -850)
+resource = ExtResource("3_7r4gi")
+
+[node name="FakeItem7" parent="ShadowAffected/Items" unique_id=1751390060 instance=ExtResource("21_7iits")]
+position = Vector2(1204, -591)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem8" parent="ShadowAffected/Items" unique_id=454404918 instance=ExtResource("21_7iits")]
+position = Vector2(1202, -528)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem9" parent="ShadowAffected/Items" unique_id=765917927 instance=ExtResource("21_7iits")]
+position = Vector2(1296, -560)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem10" parent="ShadowAffected/Items" unique_id=2064818025 instance=ExtResource("21_7iits")]
+position = Vector2(1521, -525)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem11" parent="ShadowAffected/Items" unique_id=862598581 instance=ExtResource("21_7iits")]
+position = Vector2(1387, -465)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem12" parent="ShadowAffected/Items" unique_id=611934018 instance=ExtResource("21_7iits")]
+position = Vector2(1200, -400)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem13" parent="ShadowAffected/Items" unique_id=1394857966 instance=ExtResource("21_7iits")]
+position = Vector2(1260, -321)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem14" parent="ShadowAffected/Items" unique_id=311163950 instance=ExtResource("21_7iits")]
+position = Vector2(1232, -288)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem15" parent="ShadowAffected/Items" unique_id=852755907 instance=ExtResource("21_7iits")]
+position = Vector2(1265, -210)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem16" parent="ShadowAffected/Items" unique_id=1142855770 instance=ExtResource("21_7iits")]
+position = Vector2(1329, -113)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem17" parent="ShadowAffected/Items" unique_id=54465634 instance=ExtResource("21_7iits")]
+position = Vector2(1455, -305)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem18" parent="ShadowAffected/Items" unique_id=1476430291 instance=ExtResource("21_7iits")]
+position = Vector2(1427, -336)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem19" parent="ShadowAffected/Items" unique_id=1974319791 instance=ExtResource("21_7iits")]
+position = Vector2(1583, -270)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem20" parent="ShadowAffected/Items" unique_id=282901664 instance=ExtResource("21_7iits")]
+position = Vector2(1584, -207)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem21" parent="ShadowAffected/Items" unique_id=795202928 instance=ExtResource("21_7iits")]
+position = Vector2(1640, -140)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem22" parent="ShadowAffected/Items" unique_id=1787894405 instance=ExtResource("21_7iits")]
+position = Vector2(1456, -99)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem23" parent="ShadowAffected/Items" unique_id=913228187 instance=ExtResource("21_7iits")]
+position = Vector2(1648, -20)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem24" parent="ShadowAffected/Items" unique_id=318517465 instance=ExtResource("21_7iits")]
+position = Vector2(1552, -50)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem25" parent="ShadowAffected/Items" unique_id=175097687 instance=ExtResource("21_7iits")]
+position = Vector2(1840, -429)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem26" parent="ShadowAffected/Items" unique_id=170653007 instance=ExtResource("21_7iits")]
+position = Vector2(1648, -481)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem27" parent="ShadowAffected/Items" unique_id=383363348 instance=ExtResource("21_7iits")]
+position = Vector2(1420, -655)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem28" parent="ShadowAffected/Items" unique_id=1487251890 instance=ExtResource("21_7iits")]
+position = Vector2(1521, -783)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem29" parent="ShadowAffected/Items" unique_id=1001338404 instance=ExtResource("21_7iits")]
+position = Vector2(1586, -845)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem30" parent="ShadowAffected/Items" unique_id=1347261315 instance=ExtResource("21_7iits")]
+position = Vector2(1713, -785)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem31" parent="ShadowAffected/Items" unique_id=594355498 instance=ExtResource("21_7iits")]
+position = Vector2(1875, -719)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem32" parent="ShadowAffected/Items" unique_id=1408127561 instance=ExtResource("21_7iits")]
+position = Vector2(1715, -593)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem33" parent="ShadowAffected/Items" unique_id=2086157006 instance=ExtResource("21_7iits")]
+position = Vector2(1873, -532)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem34" parent="ShadowAffected/Items" unique_id=1894425536 instance=ExtResource("21_7iits")]
+position = Vector2(1777, -561)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem35" parent="ShadowAffected/Items" unique_id=163613837 instance=ExtResource("21_7iits")]
+position = Vector2(1728, -715)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem36" parent="ShadowAffected/Items" unique_id=1465983905 instance=ExtResource("21_7iits")]
+position = Vector2(1650, -625)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem37" parent="ShadowAffected/Items" unique_id=691410974 instance=ExtResource("21_7iits")]
+position = Vector2(1752, -323)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem38" parent="ShadowAffected/Items" unique_id=2016956318 instance=ExtResource("21_7iits")]
+position = Vector2(1905, -246)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem39" parent="ShadowAffected/Items" unique_id=1481392952 instance=ExtResource("21_7iits")]
+position = Vector2(1649, -373)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem40" parent="ShadowAffected/Items" unique_id=489217736 instance=ExtResource("21_7iits")]
+position = Vector2(1776, -20)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem41" parent="ShadowAffected/Items" unique_id=228062653 instance=ExtResource("21_7iits")]
+position = Vector2(1742, -240)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem42" parent="ShadowAffected/Items" unique_id=1109011447 instance=ExtResource("21_7iits")]
+position = Vector2(1646, -312)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem43" parent="ShadowAffected/Items" unique_id=99201595 instance=ExtResource("21_7iits")]
+position = Vector2(1359, -336)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem44" parent="ShadowAffected/Items" unique_id=325809197 instance=ExtResource("21_7iits")]
+position = Vector2(1328, -367)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem45" parent="ShadowAffected/Items" unique_id=1755911677 instance=ExtResource("21_7iits")]
+position = Vector2(1521, -389)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem46" parent="ShadowAffected/Items" unique_id=602942323 instance=ExtResource("21_7iits")]
+position = Vector2(1552, -494)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem47" parent="ShadowAffected/Items" unique_id=690874274 instance=ExtResource("21_7iits")]
+position = Vector2(1822, -664)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem48" parent="ShadowAffected/Items" unique_id=2062138771 instance=ExtResource("21_7iits")]
+position = Vector2(1871, -625)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem49" parent="ShadowAffected/Items" unique_id=1781995872 instance=ExtResource("21_7iits")]
+position = Vector2(1826, -576)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem50" parent="ShadowAffected/Items" unique_id=1836329408 instance=ExtResource("21_7iits")]
+position = Vector2(1677, -834)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem51" parent="ShadowAffected/Items" unique_id=589249690 instance=ExtResource("21_7iits")]
+position = Vector2(1069, -588)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem52" parent="ShadowAffected/Items" unique_id=1648501910 instance=ExtResource("21_7iits")]
+position = Vector2(1236, -146)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem53" parent="ShadowAffected/Items" unique_id=617717281 instance=ExtResource("21_7iits")]
+position = Vector2(1424, -210)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem54" parent="ShadowAffected/Items" unique_id=696757592 instance=ExtResource("21_7iits")]
+position = Vector2(1377, -246)
+resource = ExtResource("19_2lf6f")
+
+[node name="FakeItem55" parent="ShadowAffected/Items" unique_id=770800727 instance=ExtResource("21_7iits")]
+position = Vector2(1518, -319)
+resource = ExtResource("19_2lf6f")
+
+[node name="Doors" type="Node2D" parent="ShadowAffected" unique_id=1043096986]
+
+[node name="Door" parent="ShadowAffected/Doors" unique_id=1129080956 instance=ExtResource("17_7t5mc")]
+position = Vector2(-244, 80)
+rotation = 1.5707964
+
+[node name="Door2" parent="ShadowAffected/Doors" unique_id=1210472419 node_paths=PackedStringArray("connected_lights") instance=ExtResource("17_7t5mc")]
+position = Vector2(-48, 19)
+rotation = 1.7484555e-07
+locked_door = false
+connected_lights = [NodePath("../../Lights/Light5")]
+
+[node name="Door3" parent="ShadowAffected/Doors" unique_id=2140203026 instance=ExtResource("17_7t5mc")]
+position = Vector2(208, 20)
+rotation = 3.496911e-07
+door_code = 1
+
+[node name="Door4" parent="ShadowAffected/Doors" unique_id=619740846 node_paths=PackedStringArray("connected_lights") instance=ExtResource("17_7t5mc")]
+position = Vector2(368, -408)
+rotation = 3.496911e-07
+scale = Vector2(-1, 1)
+locked_door = false
+connected_lights = [NodePath("../../Lights/Light9")]
+
+[node name="Door5" parent="ShadowAffected/Doors" unique_id=661978663 node_paths=PackedStringArray("connected_lights") instance=ExtResource("17_7t5mc")]
+position = Vector2(208, 139)
+rotation = 3.1415927
+locked_door = false
+connected_lights = [NodePath("../../Lights/Light6")]
+
+[node name="Door6" parent="ShadowAffected/Doors" unique_id=605639317 node_paths=PackedStringArray("connected_lights") instance=ExtResource("17_7t5mc")]
+position = Vector2(428, -16)
+rotation = 1.5707964
+locked_door = false
+connected_lights = [NodePath("../../Lights/Light11")]
+
+[node name="Door7" parent="ShadowAffected/Doors" unique_id=1058449752 node_paths=PackedStringArray("connected_lights") instance=ExtResource("17_7t5mc")]
+position = Vector2(428, -240)
+rotation = 1.5707964
+locked_door = false
+connected_lights = [NodePath("../../Lights/Light8")]
+
+[node name="Door8" parent="ShadowAffected/Doors" unique_id=816011463 instance=ExtResource("17_7t5mc")]
+position = Vector2(309, -272)
+rotation = -1.5707964
+door_code = 2
+animation = "Sliding_Door"
+unlock_sound = ExtResource("32_4kbfs")
+hint_message = "I need a keycard..."
+
+[node name="Door9" parent="ShadowAffected/Doors" unique_id=358730282 instance=ExtResource("17_7t5mc")]
+position = Vector2(368, -575)
+door_code = 3
+animation = "Vent"
+unlock_sound = ExtResource("31_luhhm")
+hint_message = "I need a screwdriver..."
+
+[node name="Door10" parent="ShadowAffected/Doors" unique_id=847486602 instance=ExtResource("17_7t5mc")]
+position = Vector2(1296, -493)
+rotation = 1.7484555e-07
+locked_door = false
+
+[node name="Door11" parent="ShadowAffected/Doors" unique_id=1261606913 node_paths=PackedStringArray("connected_lights") instance=ExtResource("17_7t5mc")]
+position = Vector2(1584, -427)
+rotation = 1.7484555e-07
+locked_door = false
+connected_lights = [NodePath("../../Lights/Light13")]
+
+[node name="Door12" parent="ShadowAffected/Doors" unique_id=870392767 node_paths=PackedStringArray("connected_lights") instance=ExtResource("17_7t5mc")]
+position = Vector2(1808, -461)
+rotation = 1.7484555e-07
+locked_door = false
+connected_lights = [NodePath("../../Lights/Light14")]
+
+[node name="Door13" parent="ShadowAffected/Doors" unique_id=1607671296 instance=ExtResource("17_7t5mc")]
+position = Vector2(1328, -190)
+rotation = 3.1415927
+locked_door = false
+
+[node name="Door14" parent="ShadowAffected/Doors" unique_id=725875548 node_paths=PackedStringArray("connected_lights") instance=ExtResource("17_7t5mc")]
+position = Vector2(1520, -180)
+rotation = 3.1415927
+locked_door = false
+connected_lights = [NodePath("../../Lights/Light16"), NodePath("../../Lights/Light17")]
+
+[node name="Door15" parent="ShadowAffected/Doors" unique_id=874676920 node_paths=PackedStringArray("connected_lights") instance=ExtResource("17_7t5mc")]
+position = Vector2(1808, -212)
+rotation = 3.1415927
+locked_door = false
+connected_lights = [NodePath("../../Lights/Light16"), NodePath("../../Lights/Light17")]
+
+[node name="Door16" parent="ShadowAffected/Doors" unique_id=1803042979 node_paths=PackedStringArray("connected_lights") instance=ExtResource("17_7t5mc")]
+position = Vector2(1184, -336)
+rotation = 1.5707964
+scale = Vector2(-1, 1)
+locked_door = false
+door_code = 3
+animation = "Vent_Alternate"
+connected_lights = [NodePath("../../Lights/Light12"), NodePath("../../Lights/Light15"), NodePath("../../Lights/Light18")]
+unlock_sound = ExtResource("31_luhhm")
+hint_message = "I need a screwdriver..."
+
+[node name="Door17" parent="ShadowAffected/Doors" unique_id=1192202855 instance=ExtResource("17_7t5mc")]
+position = Vector2(1072, -352)
+rotation = 0.0
+scale = Vector2(-1, 1)
+door_code = 4
+animation = "Vent"
+unlock_sound = ExtResource("31_luhhm")
+hint_message = "I need a screwdriver..."
+
+[node name="Door18" parent="ShadowAffected/Doors" unique_id=1486211035 instance=ExtResource("17_7t5mc")]
+position = Vector2(1282, -752)
+rotation = 1.5707964
+scale = Vector2(-1, 1)
+locked_door = false
+door_code = 3
+animation = "Vent_Alternate"
+unlock_sound = ExtResource("31_luhhm")
+hint_message = "I need a screwdriver..."
+
+[node name="Door19" parent="ShadowAffected/Doors" unique_id=1235388138 instance=ExtResource("17_7t5mc")]
+position = Vector2(1569, -655)
+rotation = -1.5707964
+scale = Vector2(-1, 1)
+locked_door = false
+door_code = 3
+animation = "Vent"
+unlock_sound = ExtResource("31_luhhm")
+hint_message = "I need a screwdriver..."
+
+[node name="Door20" parent="ShadowAffected/Doors" unique_id=1529504425 instance=ExtResource("17_7t5mc")]
+position = Vector2(1264, -606)
+rotation = 3.1415927
+scale = Vector2(-1, 1)
+locked_door = false
+door_code = 3
+animation = "Vent_Alternate"
+unlock_sound = ExtResource("31_luhhm")
+hint_message = "I need a screwdriver..."
+
+[node name="Door21" parent="ShadowAffected/Doors" unique_id=1352658478 instance=ExtResource("17_7t5mc")]
+position = Vector2(1477, -816)
+rotation = -1.5707964
+scale = Vector2(-1, 1)
+door_code = -1
+unlock_sound = ExtResource("31_luhhm")
+hint_message = "This door is blocked... I see something behind it..."
+
+[node name="Door22" parent="ShadowAffected/Doors" unique_id=772483825 instance=ExtResource("17_7t5mc")]
+position = Vector2(1868, -816)
+rotation = 1.5707964
+scale = Vector2(-1, 1)
+door_code = -1
+unlock_sound = ExtResource("31_luhhm")
+hint_message = "This door won't budge..."
+
+[node name="Tooltips" type="CanvasLayer" parent="." unique_id=694617367]
+follow_viewport_enabled = true
+>>>>>>> main
 
 [connection signal="timeout" from="ClarityTimer" to="." method="_on_timer_timeout"]
