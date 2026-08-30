@@ -13,6 +13,10 @@ var sane : bool = false
 var player : Player
 var player_ui : PlayerUI
 var crt_effect : ColorRect
+<<<<<<< HEAD
+=======
+var player_sanity: int = 100
+>>>>>>> 326fa3dbd4d80e879213e43f0de80c2815d544b8
 
 #signals
 signal update_sanity(sanity_to_add : int)

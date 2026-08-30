@@ -655,9 +655,13 @@ one_shot = true
 position = Vector2(107, -64)
 resource = ExtResource("7_4mrxx")
 
+<<<<<<< HEAD
 [node name="Intro" parent="ShadowAffected" unique_id=728900759 instance=ExtResource("2_4mrxx")]
 
 [node name="Player_UI" parent="ShadowAffected" unique_id=64824392 instance=ExtResource("1_71j4m")]
+=======
+<<<<<<< HEAD
+>>>>>>> 326fa3dbd4d80e879213e43f0de80c2815d544b8
 [node name="FakeItem3" parent="." unique_id=1990199408 instance=ExtResource("10_w7kh3")]
 position = Vector2(273, -55)
 resource = ExtResource("7_4mrxx")
@@ -665,6 +669,14 @@ resource = ExtResource("7_4mrxx")
 [node name="FakeItem2" parent="." unique_id=721120958 instance=ExtResource("10_w7kh3")]
 position = Vector2(368, -129)
 resource = ExtResource("7_4mrxx")
+<<<<<<< HEAD
+=======
+=======
+[node name="Intro" parent="ShadowAffected" unique_id=728900759 instance=ExtResource("2_4mrxx")]
+
+[node name="Player_UI" parent="ShadowAffected" unique_id=64824392 instance=ExtResource("1_71j4m")]
+>>>>>>> main
+>>>>>>> 326fa3dbd4d80e879213e43f0de80c2815d544b8
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1134181056]
 navigation_polygon = SubResource("NavigationPolygon_e3hyu")
@@ -674,6 +686,12 @@ position = Vector2(-15, -108)
 energy = 0.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_w7kh3")
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+texture_scale = 8.3
+=======
+>>>>>>> 326fa3dbd4d80e879213e43f0de80c2815d544b8
 texture_scale = 5.0
 
 [node name="Light2" type="PointLight2D" parent="ShadowAffected/Lights" unique_id=1071292671]
@@ -1281,6 +1299,10 @@ hint_message = "This door won't budge..."
 
 [node name="Tooltips" type="CanvasLayer" parent="." unique_id=694617367]
 follow_viewport_enabled = true
+<<<<<<< HEAD
 texture_scale = 8.3
+=======
+>>>>>>> main
+>>>>>>> 326fa3dbd4d80e879213e43f0de80c2815d544b8
 
 [connection signal="timeout" from="ClarityTimer" to="." method="_on_timer_timeout"]
