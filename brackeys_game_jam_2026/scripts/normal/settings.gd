@@ -56,12 +56,9 @@ func _ready() -> void:
 	#for i in 5:
 		#labels[i].add_theme_font_size_override("font_size", screen_width * 3 / 100)
 	
-	master.value = 100
-	background_music.value = 100
-	sound_effects.value = 100
-	SettingsGlobal.master_volume = master.value
-	SettingsGlobal.background_volume = background_music.value
-	SettingsGlobal.sfx_volume = sound_effects.value
+	master.value = SettingsGlobal.master_volume
+	background_music.value = SettingsGlobal.background_volume
+	sound_effects.value = SettingsGlobal.sfx_volume
 	
 func _on_texture_button_pressed() -> void:
 	get_parent().remove_child(self)

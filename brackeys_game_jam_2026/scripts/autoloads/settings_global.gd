@@ -1,15 +1,15 @@
 extends Node
 
-var master_volume: float:
+var master_volume: float = 50:
 	set (new_volume):
 		AudioServer.set_bus_volume_db(master_bus, new_volume)
-var background_volume: float:
+var background_volume: float = 50:
 	set (new_volume):
 		AudioServer.set_bus_volume_db(music_bus, new_volume)
-var sfx_volume: float:
+var sfx_volume: float = 50:
 	set (new_volume):
 		AudioServer.set_bus_volume_db(sfx_bus, new_volume)
-var crt_effects: bool:
+var crt_effects: bool = true:
 	set (enabled):
 		pass
 var master_bus: int
