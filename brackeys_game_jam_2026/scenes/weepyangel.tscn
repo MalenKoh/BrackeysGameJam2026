@@ -1,46 +1,30 @@
 [gd_scene format=3 uid="uid://bq6o3mrgrce8w"]
 
 [ext_resource type="Script" uid="uid://bnd2cqpql5q0u" path="res://scripts/normal/weepyangel.gd" id="1_70sve"]
-[ext_resource type="Texture2D" uid="uid://dn0rvr26ixg7" path="res://assets/sprites/top-down_guy-Sheet.png" id="2_sq1fa"]
-[ext_resource type="Texture2D" uid="uid://cp46g674yn7qa" path="res://assets/sprites/top-down_guy_flashlight-Sheet.png" id="3_lmnoo"]
+[ext_resource type="Texture2D" uid="uid://b6hbgkpru1lr2" path="res://assets/sprites/plague_doctor-Sheet.png" id="2_qavjh"]
+[ext_resource type="Script" uid="uid://cthaghggkd6tn" path="res://scripts/normal/entitySFX.gd" id="6_vm8ei"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
-atlas = ExtResource("2_sq1fa")
+[sub_resource type="AtlasTexture" id="AtlasTexture_70sve"]
+atlas = ExtResource("2_qavjh")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_po81t"]
-atlas = ExtResource("3_lmnoo")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
-atlas = ExtResource("2_sq1fa")
+[sub_resource type="AtlasTexture" id="AtlasTexture_sq1fa"]
+atlas = ExtResource("2_qavjh")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
-atlas = ExtResource("2_sq1fa")
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmnoo"]
+atlas = ExtResource("2_qavjh")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
-atlas = ExtResource("2_sq1fa")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qavjh"]
+atlas = ExtResource("2_qavjh")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vj8d1"]
-atlas = ExtResource("3_lmnoo")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aa2pa"]
-atlas = ExtResource("3_lmnoo")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4jihm"]
-atlas = ExtResource("3_lmnoo")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_qavjh"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_bclok"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qhqgy")
+"texture": SubResource("AtlasTexture_70sve")
 }],
 "loop": 1,
 "name": &"Idle",
@@ -48,44 +32,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_po81t")
-}],
-"loop": 1,
-"name": &"Idle_Flashlight",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qhqgy")
+"texture": SubResource("AtlasTexture_sq1fa")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dqkch")
+"texture": SubResource("AtlasTexture_lmnoo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qlg0r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tuyoq")
+"texture": SubResource("AtlasTexture_qavjh")
 }],
 "loop": 1,
 "name": &"Walking",
-"speed": 9.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_po81t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vj8d1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aa2pa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4jihm")
-}],
-"loop": 1,
-"name": &"Walking_Flashlight",
 "speed": 9.0
 }]
 
@@ -95,14 +51,138 @@ radius = 11.7
 [sub_resource type="CircleShape2D" id="CircleShape2D_vm8ei"]
 radius = 12.0415945
 
+[sub_resource type="Animation" id="Animation_vm8ei"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_bclok")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_70sve"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:sprite_frames")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_bclok")]
+}
+
+[sub_resource type="Animation" id="Animation_sq1fa"]
+resource_name = "Walking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_bclok")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Walking"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mo8n0"]
+_data = {
+&"Idle": SubResource("Animation_vm8ei"),
+&"RESET": SubResource("Animation_70sve"),
+&"Walking": SubResource("Animation_sq1fa")
+}
+
 [node name="weepyangel" type="CharacterBody2D" unique_id=1123629555]
 script = ExtResource("1_70sve")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2048802227]
-modulate = Color(3.8529434, 0.482837, 3.8529434, 1)
 z_index = 1
 scale = Vector2(0.986, 0.986)
-sprite_frames = SubResource("SpriteFrames_qavjh")
+sprite_frames = SubResource("SpriteFrames_bclok")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1619672694]
@@ -120,6 +200,18 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1437158880]
 shape = SubResource("CircleShape2D_vm8ei")
 
+[node name="EntitySFX" type="Node2D" parent="." unique_id=1768418986]
+script = ExtResource("6_vm8ei")
+
+[node name="Step" type="Timer" parent="EntitySFX" unique_id=1273134545]
+wait_time = 0.4
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=405356409]
+libraries/ = SubResource("AnimationLibrary_mo8n0")
+speed_scale = 2.5
+
 [connection signal="timeout" from="PathTimer" to="." method="_on_path_time_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="on_flashlight_enter"]
 [connection signal="area_exited" from="Area2D" to="." method="on_flashlight_exit"]
+[connection signal="timeout" from="EntitySFX/Step" to="EntitySFX" method="_on_step_timeout"]
