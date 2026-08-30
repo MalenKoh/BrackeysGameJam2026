@@ -2,6 +2,69 @@
 
 [ext_resource type="Script" uid="uid://chnjflbx5felm" path="res://scripts/normal/menu.gd" id="1_u81ku"]
 [ext_resource type="Texture2D" uid="uid://d2v4pvvdhs04j" path="res://assets/sprites/jocelynsyrusmeschackgobarba.jpg" id="2_2tfbb"]
+[ext_resource type="Texture2D" uid="uid://5uhkw2cnt7qq" path="res://assets/sprites/button/button_1.png" id="3_pujkf"]
+[ext_resource type="Texture2D" uid="uid://4884dcmksvl" path="res://assets/sprites/button/button_2.png" id="4_kjr1t"]
+[ext_resource type="Texture2D" uid="uid://co7biggfr6jry" path="res://assets/sprites/button/button_3.png" id="5_wk2ro"]
+[ext_resource type="Texture2D" uid="uid://cw0o5atngwtj2" path="res://assets/sprites/button/button_4.png" id="6_a511q"]
+[ext_resource type="Texture2D" uid="uid://cv3nrvhr7n6jf" path="res://assets/sprites/button/button_5.png" id="7_l5oxr"]
+[ext_resource type="Texture2D" uid="uid://dhlbxemmcy5js" path="res://assets/sprites/button/button_6.png" id="8_cwbo4"]
+[ext_resource type="Texture2D" uid="uid://8vslo4xqbu0i" path="res://assets/sprites/button_pressed/button_pressed_1.png" id="9_xg3n5"]
+[ext_resource type="Texture2D" uid="uid://du2wtcrvy7hfl" path="res://assets/sprites/button_pressed/button_pressed_2.png" id="10_4wak0"]
+[ext_resource type="Texture2D" uid="uid://ciqb6mdcjbcqr" path="res://assets/sprites/button_pressed/button_pressed_3.png" id="11_knjly"]
+[ext_resource type="Texture2D" uid="uid://prmegbela78g" path="res://assets/sprites/button_pressed/button_pressed_4.png" id="12_h1ouw"]
+[ext_resource type="Texture2D" uid="uid://bwsp4sgpih4y0" path="res://assets/sprites/button_pressed/button_pressed_5.png" id="13_7yxt8"]
+[ext_resource type="Texture2D" uid="uid://dxveg72pd755u" path="res://assets/sprites/button_pressed/button_pressed_6.png" id="14_o131u"]
+[ext_resource type="Texture2D" uid="uid://bee6eqvq3l3pe" path="res://assets/sprites/button_hover/button_hover_1.png" id="15_u30pp"]
+[ext_resource type="Texture2D" uid="uid://dob3qd7jff16h" path="res://assets/sprites/button_hover/button_hover_2.png" id="16_0cnb7"]
+[ext_resource type="Texture2D" uid="uid://0ekl6f008ju0" path="res://assets/sprites/button_hover/button_hover_3.png" id="17_7k0uf"]
+[ext_resource type="Texture2D" uid="uid://c3n82ufk0h1lt" path="res://assets/sprites/button_hover/button_hover_4.png" id="18_jcwtk"]
+[ext_resource type="Texture2D" uid="uid://6b1srw7xyanx" path="res://assets/sprites/button_hover/button_hover_5.png" id="19_7oqtn"]
+[ext_resource type="Texture2D" uid="uid://h0cpl7f6nfjw" path="res://assets/sprites/button_hover/button_hover_6.png" id="20_1anaf"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ryap2"]
+frames = 6
+frame_0/texture = ExtResource("3_pujkf")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("4_kjr1t")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("5_wk2ro")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("6_a511q")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("7_l5oxr")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("8_cwbo4")
+frame_5/duration = 0.1
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_wd1ek"]
+frames = 6
+frame_0/texture = ExtResource("9_xg3n5")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("10_4wak0")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("11_knjly")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("12_h1ouw")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("13_7yxt8")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("14_o131u")
+frame_5/duration = 0.1
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_o05f2"]
+frames = 6
+frame_0/texture = ExtResource("15_u30pp")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("16_0cnb7")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("17_7k0uf")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("18_jcwtk")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("19_7oqtn")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("20_1anaf")
+frame_5/duration = 0.1
 
 [node name="Menu" type="Control" unique_id=413426761]
 layout_mode = 3
@@ -19,15 +82,15 @@ offset_bottom = 600.0
 texture = ExtResource("2_2tfbb")
 expand_mode = 1
 
-[node name="Play" type="TextureButton" parent="." unique_id=143697903]
+[node name="Play" type="TextureButton" parent="." unique_id=978187145]
 layout_mode = 0
 offset_left = 200.0
 offset_top = 300.0
 offset_right = 600.0
-offset_bottom = 375.0
-texture_normal = ExtResource("2_2tfbb")
-texture_pressed = ExtResource("2_2tfbb")
-texture_hover = ExtResource("2_2tfbb")
+offset_bottom = 375.00006
+texture_normal = SubResource("AnimatedTexture_ryap2")
+texture_pressed = SubResource("AnimatedTexture_wd1ek")
+texture_hover = SubResource("AnimatedTexture_o05f2")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -42,15 +105,15 @@ text = "PLAY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Settings" type="TextureButton" parent="." unique_id=601082419]
+[node name="Settings" type="TextureButton" parent="." unique_id=784805574]
 layout_mode = 0
 offset_left = 200.0
 offset_top = 400.0
 offset_right = 600.0
-offset_bottom = 475.0
-texture_normal = ExtResource("2_2tfbb")
-texture_pressed = ExtResource("2_2tfbb")
-texture_hover = ExtResource("2_2tfbb")
+offset_bottom = 475.00006
+texture_normal = SubResource("AnimatedTexture_ryap2")
+texture_pressed = SubResource("AnimatedTexture_wd1ek")
+texture_hover = SubResource("AnimatedTexture_o05f2")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -71,9 +134,9 @@ offset_left = 200.0
 offset_top = 500.0
 offset_right = 600.0
 offset_bottom = 575.00006
-texture_normal = ExtResource("2_2tfbb")
-texture_pressed = ExtResource("2_2tfbb")
-texture_hover = ExtResource("2_2tfbb")
+texture_normal = SubResource("AnimatedTexture_ryap2")
+texture_pressed = SubResource("AnimatedTexture_wd1ek")
+texture_hover = SubResource("AnimatedTexture_o05f2")
 ignore_texture_size = true
 stretch_mode = 0
 

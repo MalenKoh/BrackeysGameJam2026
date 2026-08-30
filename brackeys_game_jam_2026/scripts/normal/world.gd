@@ -1,35 +1,18 @@
 extends Node2D
 class_name World
 
-@onready var canvas_modulate: CanvasModulate = $ShadowAffected/CanvasModulate
-@onready var world_environment: WorldEnvironment = $ShadowAffected/WorldEnvironment
+@onready var canvas_modulate: CanvasModulate = $CanvasModulate
+@onready var world_environment: WorldEnvironment = $WorldEnvironment
 @onready var clarity_timer: Timer = $ClarityTimer
-@onready var tooltips: CanvasLayer = $Tooltips
-@onready var floor_layer: TileMapLayer = $ShadowAffected/Floor
 
 const TRANSITION_HEARTBEAT_INSANE = preload("uid://dlsk6asahqgv4")
 const TRANSITION_TINNITUS_CLARITY = preload("uid://b32cowj2u3asa")
 const SETTINGS_MENU = preload("res://scenes/UI/settings.tscn")
 
-#sanity mechanic
 var sane : bool = false
-var clarity_min_time : float = 10
-var clarity_max_time : float = 20
-var player_sanity: int = 50:
-	set(value):
-		player_sanity = clampi(value, 0, 100)
-		
-		if (player_sanity == 100):
-			shift_to_clarity()
-		elif !sane:
-			transition_crt(set_crt_effects(), 0.5, Tween.TRANS_ELASTIC)
-
 var player : Player
 var player_ui : PlayerUI
 var crt_effect : ColorRect
-
-#signals
-signal update_sanity(sanity_to_add : int)
 var player_sanity: int = 100
 var settings_menu: Settings
 
@@ -37,7 +20,6 @@ signal clarity_begins()
 signal insanity_begins()
 
 var shader_params : Array[String] = [
-	"crt_curve",
 	"scanline_intensity",
 	"crt_brightness",
 	"crt_ghost",
@@ -47,24 +29,25 @@ var shader_params : Array[String] = [
 ]
 
 var crt_clarity_values : Dictionary[String, float] = {
-	"crt_curve" : 0.02,
+	"crt_curve" : 0.03,
 	"scanline_intensity" : 0,
 	"crt_brightness" : 1,
 	"crt_ghost" : 0,
 	"crt_white_noise" : 0,
-	"crt_grid" : 0,
-	"vignette_multiplier" : 0,
+}
+
+var crt_insanity_values : Dictionary[String, float] = {
+	"crt_curve" : 0.075,
+	"scanline_intensity" : 1.0,
+	"crt_brightness" : 0.85,
+	"crt_ghost" : 0.2,
+	"crt_white_noise" : 0.15,
 }
 
 func _ready() -> void:
 	player = PlayerGlobal.player
 	player_ui = PlayerGlobal.player_UI
 	crt_effect = player_ui.crt_effect
-	
-	update_sanity.connect(add_sanity)
-	
-func add_sanity(sanity_to_add : int) -> void:
-	player_sanity += sanity_to_add
 	settings_menu = SETTINGS_MENU.instantiate()
 	#shift_to_clarity()
 	
@@ -81,7 +64,6 @@ func shift_to_clarity() -> void:
 	
 	transition_fake_objects("ffffff00", 0.5, Tween.TRANS_CUBIC)
 	transition_crt(crt_clarity_values, 0.5, Tween.TRANS_CUBIC)
-	player.camera_2d.position_smoothing_speed = 10
 	
 	tween.tween_property(canvas_modulate, "color", Color.from_string("a7a7a7", Color.WHITE), 0.5).set_trans(Tween.TRANS_CUBIC)
 	world_environment.environment.glow_bloom = 0.5
@@ -91,29 +73,24 @@ func shift_to_clarity() -> void:
 	
 	tween.set_parallel() 
 	tween.tween_property(tinnitus, "volume_db", -70, 7).set_trans(Tween.TRANS_CIRC)
-	
 	AudioServer.set_bus_effect_enabled(1, 0, false)
 	clarity_begins.emit()
 	
-	sane = true
 	await tween.finished
 	
 	tinnitus.queue_free()
 	
-	clarity_timer.start(randf_range(clarity_min_time, clarity_max_time))
+	clarity_timer.start(randi_range(1, 1))
 	
 	await clarity_timer.timeout
 	
 	shift_to_insanity()
 	
 func shift_to_insanity() -> void:
-	player_sanity = 50
-	player.camera_2d.position_smoothing_speed = 1
-	
 	AudioServer.set_bus_effect_enabled(1, 0, true)
 	
 	transition_fake_objects("ffffff", 6, Tween.TRANS_BOUNCE)
-	transition_crt(set_crt_effects(), 6, Tween.TRANS_BOUNCE)
+	transition_crt(crt_insanity_values, 6, Tween.TRANS_BOUNCE)
 	
 	var tween : Tween = create_tween()
 	
@@ -130,7 +107,6 @@ func shift_to_insanity() -> void:
 	tween.tween_property(heart_beat, "volume_db", 10, 6).set_trans(Tween.TRANS_CIRC)
 	
 	await tween.finished
-	sane = false
 	heart_beat.stop()
 	heart_beat.queue_free()
 	insanity_begins.emit()
@@ -148,11 +124,10 @@ func transition_crt(dictionary_values : Dictionary, time : float, transition_typ
 
 func set_crt_effects() -> Dictionary[String, float]:
 	var crt_values: Dictionary[String, float] = {
-		"crt_curve" = max(0.15 - float(player_sanity) / 666.66, 0.03),
-		"scanline_intensity" = max(1.0 - float(player_sanity) / 100.0, 0.15),
+		"scanline_intensity" = 1.0 - float(player_sanity) / 100.0,
 		"crt_brightness" = 0.5 + float(player_sanity) / 200.0,
-		"crt_ghost" = max(1.1 - float(player_sanity) / 100.0, 0.2),
-		"crt_white_noise" = max(0.25 - float(player_sanity) / 400.0, 0.05),
+		"crt_ghost" = 10.0 - float(player_sanity) / 10.0,
+		"crt_white_noise" = 0.25 - float(player_sanity) / 400.0,
 		"crt_grid" = float(player_sanity) / 100.0,
 		"vignette_multiplier" = 2.0 / 3.0 - float(player_sanity) / 150.0,
 	}

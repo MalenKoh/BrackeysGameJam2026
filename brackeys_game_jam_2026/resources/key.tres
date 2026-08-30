@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="KeyResource" format=3 uid="uid://gqjkd4bnldmi"]
 
 [ext_resource type="PackedScene" uid="uid://bw0wg3p48fv4" path="res://scenes/item.tscn" id="1_iqg4b"]
-[ext_resource type="Texture2D" uid="uid://c5d0mlu35j3na" path="res://assets/sprites/keycard_icon.png" id="2_ejqnh"]
+[ext_resource type="Texture2D" uid="uid://d376vygos1i2h" path="res://assets/sprites/key_icon.png" id="2_iqg4b"]
 [ext_resource type="Script" uid="uid://cgseitli2ht15" path="res://scripts/normal/key_resource.gd" id="3_1uqin"]
 [ext_resource type="AudioStream" uid="uid://6xeo40byr5a8" path="res://assets/audio/item/unlock_door.wav" id="4_ejqnh"]
 
@@ -9,5 +9,5 @@
 script = ExtResource("3_1uqin")
 unlock_sound = ExtResource("4_ejqnh")
 item_name = "Key"
-item_sprite = ExtResource("2_ejqnh")
+item_sprite = ExtResource("2_iqg4b")
 item_scene = ExtResource("1_iqg4b")

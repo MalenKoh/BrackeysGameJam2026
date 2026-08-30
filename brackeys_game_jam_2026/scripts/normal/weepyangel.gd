@@ -1,8 +1,5 @@
 extends CharacterBody2D
 
-#Weeping Angel(light edition)
-#Stops when flashlight
-
 var WALKSPEED: int = 100
 var flashed: bool = false
 @export var player : Node2D
@@ -24,6 +21,7 @@ func _physics_process(_delta: float) -> void:
 	#check if flashlight on
 	if flashed || wah<12:
 		#walking to player
+		print(str(wah))
 		velocity=Vector2(0,0)
 	else:
 		velocity= dir*WALKSPEED

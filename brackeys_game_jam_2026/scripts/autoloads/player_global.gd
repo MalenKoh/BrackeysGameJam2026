@@ -7,42 +7,18 @@ var inventory_resources : Array[ItemResource]
 var inventory_items : Array[BaseItem]
 var current_key : int = 0
 var max_items : int = 2
-var monologue : Monologue
 
-var player_stamina : float = 100 :
-	set(value):
-		player_stamina = clampf(value, 0, 100)
-		player_UI.update_stamina(value)
-		
 #preload
-
 const DROPPED_ITEM = preload("uid://c1q3orxqixvmq")
 const DROP_ITEM = preload("uid://yeuxbbxhjv41")
 const PLAYER_EQUIP = preload("uid://cgblsapcfsfa8")
 const HOLD_ITEM = preload("uid://645sl3vcf6pa")
-const CHARACTER_MONOLOGUE = preload("uid://bje2bac0yon0u")
-
-signal intro_finished()
 
 func _ready() -> void:
-	intro_finished.connect(enable_ui)
-	
 	for i : int in range(max_items):
 		inventory_items.append(null)
 		inventory_resources.append(null)
 
-func enable_ui() -> void:
-	player_UI.reveal_ui()
-
-func add_monologue(text : String) -> void:
-	if monologue:
-		monologue.queue_free()
-		
-	monologue = CHARACTER_MONOLOGUE.instantiate()
-	monologue.set_message(text)
-	
-	get_tree().current_scene.tooltips.add_child(monologue)
-	
 func get_held_item() -> BaseItem:
 	return inventory_items[current_key]
 	
@@ -59,7 +35,7 @@ func add_to_inventory(item: DroppedItem) -> void:
 				break
 	
 	if key == -1:
-		add_monologue("I have too many items...")
+		full_inventory()
 		return
 	
 	AudioHandler.create_temporary_audio(player, PLAYER_EQUIP, 0, 2, "SFX")
@@ -116,3 +92,6 @@ func drop_item() -> void:
 	item_drop.global_position = player.global_position
 	item_drop.resource = item_resource
 	get_tree().current_scene.add_child(item_drop)
+	
+func full_inventory() -> void:
+	pass
