@@ -1649,7 +1649,7 @@ texture_scale = 4.0
 
 [node name="Light12" type="PointLight2D" parent="ShadowAffected/LightsHospital" unique_id=381040904]
 position = Vector2(1403, -338)
-energy = 0.5
+energy = 0.25
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_w7kh3")
@@ -2043,9 +2043,10 @@ resource = ExtResource("19_2lf6f")
 
 [node name="DoorsHospital" type="Node2D" parent="ShadowAffected" unique_id=1043096986]
 
-[node name="Door" parent="ShadowAffected/DoorsHospital" unique_id=1129080956 instance=ExtResource("17_7t5mc")]
+[node name="Door" parent="ShadowAffected/DoorsHospital" unique_id=1129080956 node_paths=PackedStringArray("connected_lights") instance=ExtResource("17_7t5mc")]
 position = Vector2(-244, 80)
 rotation = 1.5707964
+connected_lights = [NodePath("../../LightsHospital/Light19"), NodePath("../../LightsHospital/Light10")]
 
 [node name="Door2" parent="ShadowAffected/DoorsHospital" unique_id=1210472419 node_paths=PackedStringArray("connected_lights") instance=ExtResource("17_7t5mc")]
 position = Vector2(-48, 19)
