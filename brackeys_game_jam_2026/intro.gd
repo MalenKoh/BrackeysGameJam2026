@@ -5,6 +5,7 @@ extends CanvasLayer
 func _ready() -> void:
 	if PlayerGlobal.finished_intro:#
 		queue_free()
+		PlayerGlobal.restart()
 		return
 	
 	get_tree().paused = true
@@ -12,7 +13,6 @@ func _ready() -> void:
 	await animation_player.animation_finished
 	PlayerGlobal.intro_finished.emit()
 	PlayerGlobal.finished_intro = true
-	PlayerGlobal.restart()
 	get_tree().paused = false
 	
 	queue_free()

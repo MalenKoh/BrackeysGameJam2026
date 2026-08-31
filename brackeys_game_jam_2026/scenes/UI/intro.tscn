@@ -91,8 +91,13 @@ _data = {
 script = ExtResource("1_mv0nv")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=467995688]
-offset_right = 1661.0
-offset_bottom = 1311.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1724.0
+offset_right = 1719.0
+offset_bottom = 1785.0
+grow_horizontal = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="." unique_id=1190664083]
