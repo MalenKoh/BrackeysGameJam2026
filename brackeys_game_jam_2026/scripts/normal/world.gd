@@ -143,13 +143,13 @@ func transition_crt(dictionary_values : Dictionary, time : float, transition_typ
 
 func set_crt_effects() -> Dictionary[String, float]:
 	var crt_values: Dictionary[String, float] = {
-		"crt_curve" = max(0.15 - float(player_sanity) / 666.66, 0.03),
-		"scanline_intensity" = max(1.0 - float(player_sanity) / 100.0, 0.15),
-		"crt_brightness" = 0.5 + float(player_sanity) / 200.0,
-		"crt_ghost" = max(1.1 - float(player_sanity) / 100.0, 0.2),
-		"crt_white_noise" = max(0.25 - float(player_sanity) / 400.0, 0.05),
-		"crt_grid" = float(player_sanity) / 100.0,
-		"vignette_multiplier" = 2.0 / 3.0 - float(player_sanity) / 150.0,
+		"crt_curve" = clamp(max(0.15 - float(player_sanity) / 666.66, 0.03), 0.0, 1.0),
+		"scanline_intensity" = clamp(max(1.0 - float(player_sanity) / 100.0, 0.15), 0.0, 1.0),
+		"crt_brightness" = clamp(0.5 + float(player_sanity) / 200.0, 0.0, 1.0),
+		"crt_ghost" = clamp(max(1.1 - float(player_sanity) / 100.0, 0.2), 0.0, 10.0),
+		"crt_white_noise" = clamp(max(0.25 - float(player_sanity) / 400.0, 0.05), 0.0, 1.0),
+		"crt_grid" = clamp(float(player_sanity) / 100.0, 0.0, 1.0),
+		"vignette_multiplier" = clamp(2.0 / 3.0 - float(player_sanity) / 150.0, 0.0, 1.0),
 	}
 	return crt_values
 
