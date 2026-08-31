@@ -32,5 +32,7 @@ func _on_door_26_door_open() -> void:
 	summon_weeping_angel(spawn_2)
 
 func _on_door_24_door_open() -> void:
+	if !weeping_angel:
+		return
 	weeping_angel.on_touched_player.disconnect(weeping_angel_death)
 	weeping_angel.queue_free()

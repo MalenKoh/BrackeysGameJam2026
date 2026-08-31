@@ -204,7 +204,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=553403160]
-polygon = PackedVector2Array(37, -42, 20, -43, 2, -46, -10, -45, -27, -41, 0, -1)
+polygon = PackedVector2Array(39, -42, 0, -43, -38, -42, 0, -1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=211817329]
 libraries/ = SubResource("AnimationLibrary_5dfqo")
