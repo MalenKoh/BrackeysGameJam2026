@@ -37,6 +37,7 @@ func restart() -> void:
 	for i : int in range(max_items):
 		inventory_items[i] = null
 		inventory_resources[i] = null
+		
 func enable_ui() -> void:
 	player_UI.reveal_ui()
 

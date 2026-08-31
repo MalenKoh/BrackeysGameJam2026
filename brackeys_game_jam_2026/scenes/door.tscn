@@ -526,10 +526,10 @@ tracks/1/path = NodePath("LightOccluder2D:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, false]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -546,22 +546,10 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("LightOccluder2D:position")
+tracks/3/path = NodePath("CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-1.0000011, -6), Vector2(52, -6)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CollisionShape2D:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -579,7 +567,7 @@ size = Vector2(32, 4.5)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_la1wf"]
 cull_mode = 1
-polygon = PackedVector2Array(-17, -1.9999969, 19, -2.000003, 19, 1.9999969, -17, 2.000003)
+polygon = PackedVector2Array(-12, -3.9999979, 24, -4.000004, 24, -4.053116e-06, -12, 2.1457672e-06)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_18pbm"]
 radius = 9.0
