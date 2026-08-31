@@ -2086,7 +2086,7 @@ locked_door = false
 connected_lights = [NodePath("../../LightsHospital/Light8")]
 
 [node name="Door8" parent="ShadowAffected/DoorsHospital" unique_id=816011463 instance=ExtResource("17_7t5mc")]
-position = Vector2(309, -273)
+position = Vector2(309, -272)
 rotation = -1.5707964
 door_code = 2
 animation = "Sliding_Door"
